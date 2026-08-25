@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sócio-Torcedor Máfia Azul — Nacional FC. Faça parte da construção do clube.">
+<title>Máfia Azul | Sócio-Torcedor Nacional FC</title>
+<style>
+:root{
+  --blue:#0758ff; --blue2:#0b2b72; --navy:#030817; --navy2:#07142c;
+  --gold:#f4bf38; --gold2:#ffd86a; --white:#f7f9ff; --muted:#aab8d6;
+  --line:rgba(255,255,255,.11); --card:rgba(8,20,45,.82);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 75% 5%,#0d3b91 0,transparent 28%),linear-gradient(145deg,#020713,#061735 60%,#020713);color:var(--white);font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:rgba(2,7,19,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
+.crest{width:44px;height:44px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;color:#fff;background:#0645d6;font-family:Georgia;font-size:25px;font-weight:bold}
+.brand small{display:block;color:var(--gold);font-size:10px;letter-spacing:2px}.brand strong{font-size:17px}
+.navlinks{display:flex;gap:22px;color:#dbe5ff;font-size:14px}.navlinks a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:14px 21px;font-weight:900;cursor:pointer;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#c98900);color:#111;box-shadow:0 10px 30px rgba(244,191,56,.18)}
+.btn-primary:hover{transform:translateY(-2px)}.btn-blue{background:var(--blue);color:#fff}
+.hero{min-height:690px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:40px;padding:70px 0}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:3px;font-size:13px}
+h1{font-size:clamp(52px,7vw,92px);line-height:.87;margin:18px 0 24px;font-weight:1000;text-transform:uppercase}
+h1 span{color:var(--blue);text-shadow:0 0 30px rgba(7,88,255,.3)}
+.hero p{font-size:18px;line-height:1.65;color:#c5d1ea;max-width:610px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px}.stat b{font-size:27px}.stat span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.hero-art{position:relative;min-height:510px;border:1px solid var(--line);border-radius:30px;overflow:hidden;background:linear-gradient(145deg,rgba(8,37,92,.85),rgba(2,7,19,.96));box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.hero-art:before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle at 50% 45%,rgba(7,88,255,.34),transparent 34%);filter:blur(18px)}
+.lion{position:absolute;inset:0;display:grid;place-items:center;font-size:190px;filter:drop-shadow(0 0 40px rgba(7,88,255,.35))}
+.art-copy{position:absolute;left:26px;bottom:25px;right:26px;padding:18px;border:1px solid rgba(244,191,56,.45);border-radius:16px;background:rgba(0,5,15,.7);backdrop-filter:blur(8px)}
+.art-copy b{color:var(--gold);font-size:22px}.art-copy p{margin:5px 0 0;font-size:13px;color:#cbd7f0}
+section{padding:88px 0}.section-head{text-align:center;max-width:750px;margin:0 auto 40px}.section-head h2{font-size:42px;margin:10px 0}.section-head p{color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(150deg,rgba(13,33,71,.88),rgba(4,12,29,.9));border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 18px 50px rgba(0,0,0,.16)}
+.benefit .ico{font-size:30px}.benefit h3{margin:15px 0 8px}.benefit p{color:var(--muted);line-height:1.55;margin:0}
+.plans{align-items:stretch}.plan{position:relative}.plan.featured{border:1px solid var(--gold);box-shadow:0 0 40px rgba(244,191,56,.1)}.tag{position:absolute;right:18px;top:18px;background:var(--gold);color:#111;padding:7px 10px;border-radius:999px;font-size:10px;font-weight:1000}
+.price{font-size:38px;font-weight:1000;margin:16px 0}.price small{font-size:13px;color:var(--muted);font-weight:500}
+.plan ul{list-style:none;padding:0;margin:20px 0}.plan li{padding:9px 0;border-bottom:1px solid var(--line);color:#d9e2f5;font-size:14px}.plan li:before{content:"✓";color:var(--gold);font-weight:900;margin-right:9px}
+.darkband{background:linear-gradient(90deg,#061735,#082b70,#061735);border-block:1px solid var(--line)}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.why h2{font-size:42px;margin:10px 0 20px}.why p{color:#c4d0e8;line-height:1.7}.why-list{display:grid;gap:12px}.why-item{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:15px;background:rgba(0,0,0,.15)}.why-item b{display:block}.why-item span{color:var(--muted);font-size:13px;line-height:1.5}
+form{display:grid;gap:14px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-size:12px;color:#bdc9df;font-weight:800}input,select{width:100%;margin-top:7px;background:#06122b;border:1px solid var(--line);color:#fff;border-radius:11px;padding:14px;outline:none}input:focus,select:focus{border-color:var(--blue)}
+.member-result{display:none;margin-top:20px;padding:18px;border:1px solid var(--gold);border-radius:15px;background:rgba(244,191,56,.06)}
+.member-result.show{display:block}.member-number{font-size:38px;color:var(--gold);font-weight:1000}
+.card-preview{display:flex;justify-content:center;align-items:center}.membership{width:min(100%,510px);border-radius:22px;overflow:hidden;border:1px solid rgba(244,191,56,.45);background:linear-gradient(145deg,#03112d,#082e7a 55%,#020714);padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.3)}.membership .top{display:flex;justify-content:space-between;align-items:center}.membership .title{font-size:30px;font-weight:1000;text-transform:uppercase}.membership .title span{color:var(--blue)}.memberdata{margin:45px 0 22px}.memberdata small{color:#72a0ff;text-transform:uppercase;font-weight:900}.memberdata b{display:block;font-size:25px;margin-top:4px}.memberdata .num{color:var(--gold);font-size:35px}.qr{height:55px;background:repeating-linear-gradient(90deg,#fff 0 2px,#111 2px 4px);border-radius:4px}
+.faq{max-width:800px;margin:auto}.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.faq summary{cursor:pointer;font-weight:900}.faq p{color:var(--muted);line-height:1.6}
+footer{padding:45px 0;border-top:1px solid var(--line);color:var(--muted)}.footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-brand{color:#fff;font-weight:900}.footer-brand span{color:var(--gold)}
+.toast{position:fixed;right:20px;bottom:20px;background:#0c1f43;border:1px solid var(--gold);padding:15px 18px;border-radius:12px;display:none;z-index:100;box-shadow:0 15px 40px #0008}.toast.show{display:block}
+@media(max-width:900px){.hero,.why{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.navlinks{display:none}.hero{padding:50px 0}.hero-art{min-height:420px}.lion{font-size:130px}}
+@media(max-width:600px){section{padding:65px 0}.form-grid{grid-template-columns:1fr}.nav .btn{padding:11px 13px;font-size:12px}h1{font-size:57px}.section-head h2,.why h2{font-size:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio"><div class="crest">N</div><div><small>NACIONAL FC</small><strong>MÁFIA AZUL</strong></div></a>
+    <nav class="navlinks"><a href="#porque">Por que ser sócio</a><a href="#planos">Planos</a><a href="#cadastro">Cadastro</a><a href="#beneficios">Benefícios</a><a href="#faq">Dúvidas</a></nav>
+    <a class="btn btn-primary" href="#cadastro">QUERO SER SÓCIO</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="hero container">
+  <div>
+    <div class="kicker">SÓCIO-TORCEDOR • NACIONAL FC</div>
+    <h1>MAIS QUE TORCIDA.<br><span>UMA FAMÍLIA.</span></h1>
+    <p>A Máfia Azul nasce para unir quem acredita no Nacional FC. Em breve, você poderá escolher seu plano, garantir benefícios exclusivos e ajudar o clube a crescer cada vez mais.</p>
+    <div class="actions"><a class="btn btn-primary" href="#planos">CONHEÇA OS PLANOS</a><a class="btn btn-blue" href="#porque">POR QUE ASSINAR?</a></div>
+    <div class="stats"><div class="stat"><b>100%</b><span>PAIXÃO PELO NACIONAL</span></div><div class="stat"><b>EXCLUSIVO</b><span>BENEFÍCIOS PARA SÓCIOS</span></div><div class="stat"><b>EM BREVE</b><span>LANÇAMENTO OFICIAL</span></div></div>
+  </div>
+  <div class="hero-art">
+    <div class="lion">🦁</div>
+    <div class="art-copy"><b>EM BREVE • PLANOS MÁFIA AZUL</b><p>Faça parte da construção de um Nacional FC mais forte, estruturado e vencedor.</p></div>
+  </div>
+</section>
+
+<section id="porque" class="darkband">
+<div class="container why">
+  <div><div class="kicker">O QUE ESTAMOS CONSTRUINDO</div><h2>Por que ser Sócio-Torcedor?</h2><p>Porque o Nacional FC é feito por quem acredita. Sua mensalidade ajuda a transformar paixão em estrutura, planejamento e oportunidades para o clube.</p><a class="btn btn-primary" href="#cadastro">QUERO FAZER PARTE</a></div>
+  <div class="why-list">
+    <div class="why-item"><div>🦁</div><div><b>Você fortalece o clube</b><span>Ajuda na manutenção, materiais, estrutura e rotina do Nacional FC.</span></div></div>
+    <div class="why-item"><div>📈</div><div><b>Investimento no futuro</b><span>Mais recursos significam mais capacidade para planejar, crescer e revelar talentos.</span></div></div>
+    <div class="why-item"><div>🎟️</div><div><b>Benefícios exclusivos</b><span>Descontos, sorteios, conteúdos, produtos e experiências especiais.</span></div></div>
+    <div class="why-item"><div>💙</div><div><b>Você faz parte da história</b><span>Não é só apoiar de fora: é carregar o escudo como parte da família.</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="planos">
+<div class="container">
+  <div class="section-head"><div class="kicker">ESCOLHA SEU NÍVEL DE PAIXÃO</div><h2>Planos da Máfia Azul</h2><p>Os valores abaixo são uma estrutura inicial de lançamento e podem ser ajustados antes da abertura oficial das assinaturas.</p></div>
+  <div class="grid plans">
+    <article class="card plan"><h3>PLANO BRONZE</h3><div class="price">R$ 10<small>/mês</small></div><ul><li>Carteirinha digital</li><li>Conteúdos exclusivos</li><li>Participação em sorteios</li><li>Desconto em eventos parceiros</li></ul><a class="btn btn-blue" href="#cadastro" onclick="setPlan('Bronze')">TENHO INTERESSE</a></article>
+    <article class="card plan"><h3>PLANO PRATA</h3><div class="price">R$ 20<small>/mês</small></div><ul><li>Todos os benefícios Bronze</li><li>Descontos em produtos oficiais</li><li>Grupo exclusivo de sócios</li><li>Mais chances em ações promocionais</li></ul><a class="btn btn-blue" href="#cadastro" onclick="setPlan('Prata')">TENHO INTERESSE</a></article>
+    <article class="card plan featured"><span class="tag">MAIS COMPLETO</span><h3>PLANO OURO 👑</h3><div class="price">R$ 30<small>/mês</small></div><ul><li>Todos os benefícios Prata</li><li>Benefícios VIP em eventos</li><li>Sorteios e experiências exclusivas</li><li>Acesso a conteúdos premium</li><li>Prioridade em ações especiais</li></ul><a class="btn btn-primary" href="#cadastro" onclick="setPlan('Ouro')">QUERO O OURO</a></article>
+  </div>
+</div>
+</section>
+
+<section id="beneficios" class="darkband">
+<div class="container">
+  <div class="section-head"><div class="kicker">VANTAGENS</div><h2>Ser Máfia Azul vale a pena</h2><p>Uma comunidade criada para aproximar o torcedor do clube e transformar apoio em benefícios.</p></div>
+  <div class="grid">
+    <div class="card benefit"><div class="ico">🎟️</div><h3>Descontos em eventos</h3><p>Condições especiais em eventos e ações do Nacional FC.</p></div>
+    <div class="card benefit"><div class="ico">👕</div><h3>Produtos oficiais</h3><p>Descontos e condições exclusivas para sócios.</p></div>
+    <div class="card benefit"><div class="ico">🎁</div><h3>Sorteios exclusivos</h3><p>Campanhas e experiências especiais para a família Máfia Azul.</p></div>
+    <div class="card benefit"><div class="ico">🔐</div><h3>Grupo VIP</h3><p>Um espaço para comunicação, novidades e bastidores.</p></div>
+    <div class="card benefit"><div class="ico">⭐</div><h3>Conteúdo exclusivo</h3><p>Notícias, bastidores e materiais feitos especialmente para sócios.</p></div>
+    <div class="card benefit"><div class="ico">👑</div><h3>Experiências VIP</h3><p>Benefícios premium de acordo com o plano escolhido.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="cadastro">
+<div class="container">
+  <div class="section-head"><div class="kicker">PRÉ-CADASTRO</div><h2>Entre para a Máfia Azul</h2><p>O cadastro abaixo é demonstrativo nesta primeira versão. Quando o lançamento oficial acontecer, ele poderá ser conectado ao pagamento e ao banco de dados dos sócios.</p></div>
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    <div class="card">
+      <form id="memberForm">
+        <div class="form-grid">
+          <label>Nome completo<input id="name" required placeholder="Seu nome"></label>
+          <label>WhatsApp<input id="phone" required placeholder="(00) 00000-0000"></label>
+        </div>
+        <div class="form-grid">
+          <label>E-mail<input id="email" type="email" required placeholder="voce@email.com"></label>
+          <label>Plano<select id="plan"><option>Bronze</option><option>Prata</option><option>Ouro</option></select></label>
+        </div>
+        <label>Cidade<input id="city" placeholder="Sua cidade"></label>
+        <button class="btn btn-primary" type="submit">FAZER PRÉ-CADASTRO</button>
+      </form>
+      <div id="result" class="member-result"><small>NÚMERO DE PRÉ-SÓCIO</small><div class="member-number" id="memberNo">0002</div><b id="memberName"></b><p id="memberPlan"></p></div>
+    </div>
+    <div class="card-preview">
+      <div class="membership">
+        <div class="top"><div class="crest">N</div><span style="color:var(--gold);font-weight:1000">PLANO OURO 👑</span></div>
+        <div class="title">MÁFIA <span>AZUL</span></div>
+        <div class="memberdata"><small>Nome do sócio</small><b id="previewName">SEU NOME</b><small style="display:block;margin-top:18px">Número do sócio</small><b class="num" id="previewNo">0002</b></div>
+        <div class="qr"></div>
+        <p style="margin-bottom:0;color:#dbe4f6;font-size:12px">Mais que torcida, uma família! • Nacional FC</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+  <div class="section-head"><div class="kicker">DÚVIDAS</div><h2>Perguntas frequentes</h2></div>
+  <div class="faq">
+    <details open><summary>Quando os planos serão lançados?</summary><p>O lançamento oficial será anunciado pelos canais do Nacional FC. Este site já deixa a estrutura preparada para a abertura.</p></details>
+    <details><summary>O cadastro já é uma assinatura?</summary><p>Não. Nesta versão é apenas um pré-cadastro demonstrativo. A assinatura e cobrança só devem ocorrer depois da ativação do sistema oficial de pagamentos.</p></details>
+    <details><summary>Como vou receber minha carteirinha?</summary><p>Na versão completa, o sócio poderá acessar uma carteirinha digital com número individual, plano e QR Code.</p></details>
+    <details><summary>Posso trocar de plano?</summary><p>Sim. A regra de upgrade/downgrade poderá ser definida pelo clube antes do lançamento.</p></details>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-grid">
+  <div><div class="footer-brand">NACIONAL FC • <span>MÁFIA AZUL</span></div><div>Mais que torcida, uma família.</div></div>
+  <div>Diretor de Futebol do Nacional FC • 2026</div>
+</div>
+</footer>
+<div class="toast" id="toast">Pré-cadastro registrado nesta versão demonstrativa!</div>
+<script>
+let nextNo = Number(localStorage.getItem('mafiaNextNo') || 2);
+function setPlan(p){document.getElementById('plan').value=p}
+const form=document.getElementById('memberForm');
+form.addEventListener('submit',e=>{
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const plan=document.getElementById('plan').value;
+ const no=String(nextNo).padStart(4,'0');
+ nextNo++; localStorage.setItem('mafiaNextNo',nextNo);
+ document.getElementById('memberNo').textContent=no;
+ document.getElementById('memberName').textContent=name.toUpperCase();
+ document.getElementById('memberPlan').textContent='Plano escolhido: '+plan;
+ document.getElementById('previewName').textContent=name.toUpperCase();
+ document.getElementById('previewNo').textContent=no;
+ document.getElementById('result').classList.add('show');
+ const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
+});
+</script>
+</body>
+</html>
