@@ -956,7 +956,7 @@ document
   };
 
   const resposta = await fetch(
-  "https://vymnnlgbcyhzepikhivy.supabase.co/rest/v1/socios",
+  "https://vymnnlgbcyhzepikhiyy.supabase.co/rest/v1/socios",
   {
     method: "POST",
     headers: {
@@ -968,6 +968,13 @@ document
     body: JSON.stringify(socio)
   }
 );
+
+if (!resposta.ok) {
+  const erro = await resposta.text();
+  console.error("Erro Supabase:", erro);
+  alert("Erro ao cadastrar socio. Verifique os dados e tente novamente.");
+  return;
+}
 
 if (!resposta.ok) {
   alert("Erro ao cadastrar sócio. Tente novamente.");
