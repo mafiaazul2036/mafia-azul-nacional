@@ -3,22 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06132f">
 
 <title>Máfia Azul | Sócio-Torcedor Nacional FC</title>
 
 <style>
 :root{
-  --azul:#0758ff;
-  --azul2:#0b2b72;
-  --azul3:#06132f;
-  --azul4:#020817;
-  --ouro:#ffbf18;
-  --ouro2:#ffd84d;
-  --branco:#ffffff;
-  --cinza:#b9c7e8;
-  --card:rgba(8,27,65,.88);
-  --linha:rgba(255,255,255,.12);
+  --navy:#020817;
+  --navy2:#061637;
+  --blue:#0758ff;
+  --blue2:#0b2b72;
+  --gold:#ffc928;
+  --gold2:#f4a900;
+  --white:#ffffff;
+  --muted:#b9c8e8;
+  --card:#0a2252;
+  --line:rgba(255,255,255,.12);
 }
 
 *{
@@ -34,34 +33,36 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at 50% 0%,#123f96 0%,#06132f 38%,#020817 100%);
-  color:var(--branco);
+    radial-gradient(circle at 50% 0%,#123d91 0%,#061637 42%,#020817 100%);
+  color:var(--white);
   min-height:100vh;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+button,
+input,
+select{
+  font:inherit;
 }
 
-.container{
-  width:min(1100px,92%);
-  margin:auto;
+button{
+  cursor:pointer;
 }
 
-/* TOPO */
+/* ================= HEADER ================= */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:rgba(2,8,23,.94);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,191,24,.25);
+  background:rgba(2,8,23,.96);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,201,40,.18);
 }
 
-.nav{
-  min-height:76px;
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -75,129 +76,138 @@ header{
 }
 
 .logo{
-  width:50px;
-  height:50px;
+  width:58px;
+  height:58px;
   border-radius:50%;
-  background:linear-gradient(145deg,#1670ff,#06379e);
+  background:linear-gradient(145deg,#1670ff,#00379e);
   border:3px solid white;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:25px;
-  font-weight:900;
-  box-shadow:0 0 20px rgba(7,88,255,.4);
+  font-family:Georgia,serif;
+  font-size:34px;
+  font-weight:bold;
+  box-shadow:0 0 20px rgba(0,88,255,.45);
+}
+
+.brand-text small{
+  display:block;
+  color:var(--gold);
+  letter-spacing:4px;
+  font-weight:800;
+  font-size:12px;
 }
 
 .brand-text strong{
   display:block;
-  color:var(--ouro);
-  font-size:14px;
-  letter-spacing:3px;
+  font-size:21px;
+  margin-top:2px;
 }
 
-.brand-text span{
-  display:block;
-  font-size:20px;
-  font-weight:900;
-  letter-spacing:1px;
-}
-
-.nav-btn{
-  background:linear-gradient(135deg,var(--ouro2),#e69d00);
-  color:#101010;
-  padding:15px 19px;
-  border-radius:14px;
-  font-weight:900;
-  font-size:13px;
+.header-btn{
   border:0;
-  box-shadow:0 8px 25px rgba(255,191,24,.18);
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#07132e;
+  font-weight:900;
+  padding:15px 22px;
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(255,201,40,.2);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
-  padding:55px 0 35px;
+  max-width:1100px;
+  margin:auto;
+  padding:55px 20px 25px;
   text-align:center;
 }
 
 .badge{
   display:inline-block;
-  color:var(--ouro2);
-  border:1px solid rgba(255,191,24,.4);
-  background:rgba(255,191,24,.08);
-  padding:8px 14px;
-  border-radius:999px;
+  border:1px solid rgba(255,201,40,.7);
+  color:var(--gold);
+  padding:11px 20px;
+  border-radius:30px;
   font-weight:800;
-  font-size:12px;
   letter-spacing:1px;
-  margin-bottom:18px;
+  margin-bottom:22px;
 }
 
 .hero h1{
-  font-size:clamp(42px,10vw,82px);
+  font-size:clamp(54px,13vw,105px);
   line-height:.9;
-  font-weight:1000;
-  letter-spacing:-3px;
+  font-weight:950;
+  letter-spacing:-4px;
 }
 
 .hero h1 span{
-  color:var(--azul);
-  text-shadow:0 0 25px rgba(7,88,255,.35);
+  color:var(--blue);
+  text-shadow:0 0 25px rgba(0,88,255,.35);
 }
 
 .hero h2{
-  margin-top:18px;
-  font-size:clamp(17px,4vw,25px);
+  margin-top:25px;
+  font-size:clamp(22px,5vw,36px);
 }
 
 .hero p{
-  max-width:650px;
-  margin:16px auto 0;
-  color:var(--cinza);
+  max-width:760px;
+  margin:20px auto 0;
+  color:var(--muted);
+  font-size:18px;
   line-height:1.6;
-  font-size:15px;
 }
 
-/* DESTAQUE */
+/* ================= MOVIMENTO ================= */
 
-.family{
-  margin:25px auto 45px;
-  max-width:850px;
-  padding:25px;
-  border-radius:25px;
-  background:
-    linear-gradient(135deg,rgba(7,88,255,.20),rgba(255,191,24,.07));
-  border:1px solid rgba(255,255,255,.12);
+.movement{
+  max-width:900px;
+  margin:35px auto;
+  padding:28px 20px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:28px;
+  background:linear-gradient(135deg,rgba(17,59,143,.7),rgba(8,31,75,.8));
   text-align:center;
 }
 
-.family-title{
-  color:var(--ouro2);
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:2px;
-  margin-bottom:8px;
-}
-
-.family p{
-  font-size:22px;
+.movement small{
+  color:var(--gold);
+  letter-spacing:4px;
   font-weight:900;
 }
 
-/* PLANOS */
+.movement h3{
+  margin-top:18px;
+  font-size:clamp(21px,5vw,34px);
+}
+
+.heart{
+  color:#2380ff;
+  font-size:35px;
+}
+
+/* ================= PLANOS ================= */
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:45px 18px;
+}
 
 .section-title{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 
 .section-title h2{
-  font-size:30px;
+  font-size:clamp(34px,8vw,55px);
 }
 
 .section-title p{
-  color:var(--cinza);
-  margin-top:7px;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:17px;
 }
 
 .plans{
@@ -207,86 +217,91 @@ header{
 }
 
 .plan{
-  background:linear-gradient(160deg,rgba(10,39,92,.95),rgba(4,17,42,.96));
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:24px;
-  padding:25px 20px;
   position:relative;
+  background:linear-gradient(160deg,#0b2b66,#061638);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:28px 22px;
   overflow:hidden;
 }
 
-.plan.featured{
-  border:2px solid var(--ouro);
-  transform:translateY(-8px);
-  box-shadow:0 15px 45px rgba(255,191,24,.13);
+.plan::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:rgba(0,88,255,.13);
+  right:-70px;
+  top:-70px;
 }
 
-.plan-name{
-  color:var(--ouro2);
-  font-size:14px;
+.plan.featured{
+  border:2px solid var(--gold);
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(255,201,40,.1);
+}
+
+.plan-label{
+  color:var(--gold);
   font-weight:900;
   letter-spacing:2px;
+  font-size:14px;
 }
 
 .plan h3{
-  font-size:27px;
-  margin:8px 0;
+  font-size:29px;
+  margin-top:10px;
 }
 
 .price{
-  font-size:42px;
-  font-weight:1000;
+  margin:17px 0;
+  font-size:45px;
+  font-weight:950;
 }
 
 .price small{
   font-size:15px;
-  color:var(--cinza);
+  color:var(--muted);
 }
 
 .plan ul{
   list-style:none;
-  margin:18px 0;
+  margin:20px 0;
 }
 
 .plan li{
-  color:#d9e3ff;
-  margin:10px 0;
-  font-size:14px;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  color:#e8efff;
 }
 
 .plan li::before{
   content:"✓";
-  color:var(--ouro2);
-  font-weight:900;
+  color:var(--gold);
+  font-weight:bold;
   margin-right:8px;
 }
 
 .plan-btn{
   width:100%;
-  padding:15px;
   border:0;
-  border-radius:13px;
-  background:linear-gradient(135deg,var(--ouro2),#e89f00);
-  color:#111;
-  font-weight:1000;
-  font-size:14px;
-  cursor:pointer;
+  padding:15px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#07132e;
+  font-weight:900;
 }
 
-/* CADASTRO */
+/* ================= CADASTRO ================= */
 
-#cadastro{
-  padding:65px 0 45px;
-}
-
-.form-card{
+.form-box{
   max-width:760px;
   margin:auto;
-  background:var(--card);
-  border:1px solid var(--linha);
+  background:rgba(7,26,65,.9);
+  border:1px solid var(--line);
   border-radius:28px;
   padding:25px;
-  box-shadow:0 20px 70px rgba(0,0,0,.25);
 }
 
 .form-grid{
@@ -296,216 +311,278 @@ header{
 }
 
 .field{
-  margin-bottom:15px;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
 }
 
 .field.full{
   grid-column:1/-1;
 }
 
-label{
-  display:block;
-  color:#cbd8f5;
-  font-weight:800;
-  font-size:13px;
-  margin-bottom:8px;
+.field label{
+  color:#d7e4ff;
+  font-weight:700;
 }
 
-input,select{
+.field input,
+.field select{
   width:100%;
-  border:1px solid rgba(255,255,255,.12);
-  background:#071b40;
+  border:1px solid rgba(255,255,255,.14);
+  background:#071839;
   color:white;
-  padding:16px;
+  padding:15px;
   border-radius:13px;
   outline:none;
-  font-size:15px;
 }
 
-input:focus,select:focus{
-  border-color:var(--ouro);
+.field input:focus,
+.field select:focus{
+  border-color:var(--gold);
 }
 
 .submit{
   width:100%;
+  margin-top:20px;
+  padding:17px;
   border:0;
-  padding:18px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--ouro2),#e49a00);
-  color:#101010;
-  font-size:16px;
-  font-weight:1000;
-  cursor:pointer;
-  margin-top:5px;
+  border-radius:15px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#07132e;
+  font-weight:950;
+  font-size:17px;
 }
 
-/* RESULTADO */
+/* ================= CARTEIRINHA ================= */
 
-#result{
+.member-card{
   display:none;
-  max-width:760px;
-  margin:25px auto 0;
+  max-width:430px;
+  margin:30px auto;
+  padding:25px;
+  border-radius:25px;
+  background:linear-gradient(145deg,#0b3fa8,#061b50);
+  border:1px solid var(--gold);
+  box-shadow:0 20px 45px rgba(0,0,0,.3);
 }
 
-#result.show{
+.member-card.show{
   display:block;
 }
 
-.member-result{
-  background:linear-gradient(145deg,#092d78,#061634);
-  border:2px solid var(--ouro);
-  border-radius:24px;
-  padding:25px;
-  text-align:center;
-}
-
-.member-result h3{
-  color:var(--ouro2);
-  font-size:22px;
-  margin-bottom:18px;
+.member-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .member-number{
-  font-size:52px;
-  font-weight:1000;
-  color:var(--ouro2);
-  margin:10px 0 18px;
-  letter-spacing:3px;
+  color:var(--gold);
+  font-size:31px;
+  font-weight:950;
+  margin:15px 0;
 }
 
-.member-result p{
-  margin:8px 0;
-  color:#dbe5ff;
-}
-
-.result-btn{
-  display:block;
-  width:100%;
-  padding:16px;
-  border-radius:13px;
-  margin-top:14px;
+.member-name{
+  font-size:26px;
   font-weight:900;
 }
 
-.pay{
-  background:linear-gradient(135deg,var(--ouro2),#e49a00);
-  color:#111;
+.member-plan{
+  color:#bcd0ff;
+  margin-top:7px;
 }
 
-.whatsapp{
-  background:#16a34a;
-  color:white;
+/* ================= CENTRAL ================= */
+
+.admin-area{
+  max-width:1100px;
+  margin:40px auto 0;
+  padding:0 18px 60px;
 }
 
-/* BENEFÍCIOS */
-
-.benefits{
-  padding:35px 0 65px;
+.admin-toggle{
+  width:100%;
+  padding:17px;
+  background:#071a3c;
+  border:1px solid rgba(255,201,40,.35);
+  color:var(--gold);
+  border-radius:16px;
+  font-weight:900;
 }
 
-.benefit-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.benefit{
-  background:rgba(255,255,255,.045);
-  border:1px solid var(--linha);
-  border-radius:20px;
+.admin-panel{
+  display:none;
+  margin-top:20px;
+  background:#061532;
+  border:1px solid var(--line);
+  border-radius:25px;
   padding:22px;
 }
 
-.icon{
+.admin-panel.open{
+  display:block;
+}
+
+.login{
+  max-width:450px;
+  margin:auto;
+}
+
+.login h3{
   font-size:28px;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.login input{
+  width:100%;
   margin-bottom:12px;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:#081c42;
+  color:white;
 }
 
-.benefit h3{
-  font-size:17px;
-  margin-bottom:7px;
-}
-
-.benefit p{
-  color:var(--cinza);
-  font-size:13px;
-  line-height:1.5;
-}
-
-/* FAQ */
-
-.faq{
-  padding-bottom:65px;
-}
-
-details{
-  background:rgba(255,255,255,.045);
-  border:1px solid var(--linha);
-  border-radius:15px;
-  padding:18px;
-  margin-bottom:10px;
-}
-
-summary{
-  cursor:pointer;
+.login button{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:var(--gold);
   font-weight:900;
 }
 
-details p{
-  color:var(--cinza);
-  line-height:1.5;
-  margin-top:12px;
-  font-size:14px;
+.dashboard{
+  display:none;
 }
 
-/* FOOTER */
+.dashboard.show{
+  display:block;
+}
+
+.dashboard-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.dashboard-top h3{
+  font-size:28px;
+}
+
+.logout{
+  border:1px solid #ff5d5d;
+  color:#ff8a8a;
+  background:transparent;
+  padding:10px 15px;
+  border-radius:10px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.stat{
+  padding:18px;
+  border-radius:18px;
+  background:#0a2454;
+}
+
+.stat small{
+  color:var(--muted);
+}
+
+.stat strong{
+  display:block;
+  margin-top:8px;
+  font-size:30px;
+  color:var(--gold);
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+th,
+td{
+  padding:12px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+}
+
+th{
+  color:var(--gold);
+}
+
+.empty{
+  color:var(--muted);
+  text-align:center;
+  padding:30px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
-  border-top:1px solid var(--linha);
-  padding:30px 0;
   text-align:center;
-  color:var(--cinza);
-  font-size:13px;
+  padding:35px 18px;
+  background:#010713;
+  border-top:1px solid var(--line);
+  color:var(--muted);
 }
 
 footer strong{
-  color:var(--ouro2);
+  color:white;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
 @media(max-width:760px){
 
-  .nav{
-    min-height:70px;
+  .header-inner{
+    padding:10px 12px;
   }
 
   .logo{
-    width:44px;
-    height:44px;
-    font-size:22px;
+    width:48px;
+    height:48px;
+    font-size:27px;
   }
 
-  .brand-text strong{
-    font-size:11px;
+  .brand-text small{
+    font-size:9px;
     letter-spacing:2px;
   }
 
-  .brand-text span{
+  .brand-text strong{
     font-size:17px;
   }
 
-  .nav-btn{
-    padding:12px 13px;
-    font-size:11px;
+  .header-btn{
+    padding:12px 14px;
+    font-size:12px;
+    border-radius:13px;
   }
 
   .hero{
-    padding-top:42px;
+    padding-top:40px;
   }
 
   .hero h1{
-    font-size:54px;
+    letter-spacing:-3px;
   }
 
   .plans{
@@ -524,16 +601,8 @@ footer strong{
     grid-column:auto;
   }
 
-  .benefit-grid{
+  .stats{
     grid-template-columns:1fr;
-  }
-
-  .family p{
-    font-size:18px;
-  }
-
-  .form-card{
-    padding:20px;
   }
 }
 </style>
@@ -542,66 +611,62 @@ footer strong{
 <body>
 
 <header>
-  <div class="container nav">
+  <div class="header-inner">
 
-    <a href="#" class="brand">
+    <div class="brand">
       <div class="logo">N</div>
 
       <div class="brand-text">
-        <strong>NACIONAL FC</strong>
-        <span>MÁFIA AZUL</span>
+        <small>NACIONAL FC</small>
+        <strong>MÁFIA AZUL</strong>
       </div>
-    </a>
+    </div>
 
-    <a href="#cadastro" class="nav-btn">
+    <button class="header-btn"
+      onclick="document.getElementById('cadastro').scrollIntoView()">
       QUERO SER SÓCIO
-    </a>
+    </button>
 
   </div>
 </header>
 
+
 <main>
 
 <section class="hero">
-  <div class="container">
 
-    <div class="badge">
-      NACIONAL FC • SÓCIO-TORCEDOR
-    </div>
-
-    <h1>
-      MÁFIA <span>AZUL</span>
-    </h1>
-
-    <h2>
-      Mais que torcida, uma família.
-    </h2>
-
-    <p>
-      Faça parte da Máfia Azul e ajude o Nacional FC a crescer,
-      se estruturar e conquistar cada vez mais.
-    </p>
-
+  <div class="badge">
+    NACIONAL FC • SÓCIO-TORCEDOR
   </div>
+
+  <h1>
+    MÁFIA <span>AZUL</span>
+  </h1>
+
+  <h2>Mais que torcida, uma família.</h2>
+
+  <p>
+    Faça parte da Máfia Azul e ajude o Nacional FC
+    a crescer, se estruturar e conquistar cada vez mais.
+  </p>
+
 </section>
 
 
-<section class="container">
-  <div class="family">
+<section class="movement">
 
-    <div class="family-title">
-      NOSSO MOVIMENTO
-    </div>
+  <small>NOSSO MOVIMENTO</small>
 
-    <p>
-      💙 JUNTOS PELO NACIONAL FC 💙
-    </p>
+  <h3>
+    <span class="heart">💙</span>
+    JUNTOS PELO NACIONAL FC
+    <span class="heart">💙</span>
+  </h3>
 
-  </div>
 </section>
 
 
-<section class="container">
+<section class="section">
 
   <div class="section-title">
     <h2>Escolha seu plano</h2>
@@ -610,245 +675,318 @@ footer strong{
 
   <div class="plans">
 
-    <article class="plan">
+    <div class="plan">
 
-      <div class="plan-name">PLANO BRONZE</div>
+      <div class="plan-label">PLANO BRONZE</div>
 
       <h3>Máfia Azul</h3>
 
       <div class="price">
-        R$ 10 <small>/ mês</small>
+        R$ 10
+        <small>/mês</small>
       </div>
 
       <ul>
-        <li>Carteirinha digital</li>
+        <li>Carteirinha de sócio</li>
         <li>Número oficial de sócio</li>
-        <li>Participação no movimento</li>
-        <li>Conteúdos exclusivos</li>
+        <li>Nome na família Máfia Azul</li>
+        <li>Participação nas ações do clube</li>
       </ul>
 
-      <button class="plan-btn" onclick="selecionarPlano('Bronze')">
+      <button class="plan-btn"
+        onclick="selecionarPlano('Bronze','10')">
         ESCOLHER BRONZE
       </button>
 
-    </article>
+    </div>
 
 
-    <article class="plan featured">
+    <div class="plan featured">
 
-      <div class="plan-name">PLANO PRATA ⭐</div>
+      <div class="plan-label">PLANO PRATA ⭐</div>
 
       <h3>Máfia Azul</h3>
 
       <div class="price">
-        R$ 20 <small>/ mês</small>
+        R$ 20
+        <small>/mês</small>
       </div>
 
       <ul>
         <li>Todos os benefícios Bronze</li>
         <li>Descontos em eventos</li>
         <li>Benefícios exclusivos</li>
-        <li>Prioridade em ações da torcida</li>
+        <li>Participação em promoções</li>
       </ul>
 
-      <button class="plan-btn" onclick="selecionarPlano('Prata')">
+      <button class="plan-btn"
+        onclick="selecionarPlano('Prata','20')">
         ESCOLHER PRATA
       </button>
 
-    </article>
+    </div>
 
 
-    <article class="plan">
+    <div class="plan">
 
-      <div class="plan-name">PLANO OURO 👑</div>
+      <div class="plan-label">PLANO OURO 👑</div>
 
       <h3>Máfia Azul</h3>
 
       <div class="price">
-        R$ 30 <small>/ mês</small>
+        R$ 30
+        <small>/mês</small>
       </div>
 
       <ul>
         <li>Todos os benefícios Prata</li>
-        <li>Descontos especiais</li>
-        <li>Benefícios premium</li>
-        <li>Experiências exclusivas</li>
+        <li>Benefícios especiais</li>
+        <li>Descontos especiais em eventos</li>
+        <li>Categoria de apoiador Ouro</li>
       </ul>
 
-      <button class="plan-btn" onclick="selecionarPlano('Ouro')">
+      <button class="plan-btn"
+        onclick="selecionarPlano('Ouro','30')">
         ESCOLHER OURO
       </button>
 
-    </article>
+    </div>
 
   </div>
 
 </section>
 
 
-<section id="cadastro">
+<section class="section" id="cadastro">
 
-  <div class="container">
+  <div class="section-title">
 
-    <div class="section-title">
-      <h2>Faça seu cadastro</h2>
-      <p>Entre oficialmente para a Máfia Azul.</p>
-    </div>
+    <h2>Faça seu cadastro</h2>
 
-    <div class="form-card">
+    <p>
+      Seu cadastro será registrado e você receberá seu número de sócio.
+    </p>
 
-      <form id="cadastroForm">
+  </div>
 
-        <div class="form-grid">
 
-          <div class="field full">
-            <label for="nome">Nome completo</label>
-            <input
-              id="nome"
-              type="text"
-              placeholder="Digite seu nome completo"
-              required
-            >
-          </div>
+  <div class="form-box">
 
-          <div class="field">
-            <label for="whatsapp">WhatsApp</label>
-            <input
-              id="whatsapp"
-              type="tel"
-              placeholder="(12) 99999-9999"
-              required
-            >
-          </div>
+    <form id="memberForm">
 
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="seuemail@email.com"
-              required
-            >
-          </div>
+      <div class="form-grid">
 
-          <div class="field">
-            <label for="plano">Plano</label>
+        <div class="field full">
+          <label>Nome completo</label>
+          <input
+            id="nome"
+            type="text"
+            placeholder="Digite seu nome completo"
+            required>
+        </div>
 
-            <select id="plano" required>
-              <option value="">Selecione seu plano</option>
-              <option value="Bronze">Bronze — R$ 10/mês</option>
-              <option value="Prata">Prata — R$ 20/mês</option>
-              <option value="Ouro">Ouro — R$ 30/mês</option>
-            </select>
 
-          </div>
+        <div class="field">
+          <label>WhatsApp</label>
+          <input
+            id="whatsapp"
+            type="tel"
+            placeholder="(00) 00000-0000"
+            required>
+        </div>
 
-          <div class="field">
-            <label for="cidade">Cidade</label>
-            <input
-              id="cidade"
-              type="text"
-              placeholder="Sua cidade"
-              required
-            >
-          </div>
+
+        <div class="field">
+          <label>E-mail</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="seuemail@email.com"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>Cidade</label>
+          <input
+            id="cidade"
+            type="text"
+            placeholder="Sua cidade"
+            required>
+        </div>
+
+
+        <div class="field">
+          <label>Plano</label>
+
+          <select id="plano" required>
+
+            <option value="">
+              Escolha seu plano
+            </option>
+
+            <option value="Bronze|10">
+              Bronze — R$ 10/mês
+            </option>
+
+            <option value="Prata|20">
+              Prata — R$ 20/mês
+            </option>
+
+            <option value="Ouro|30">
+              Ouro — R$ 30/mês
+            </option>
+
+          </select>
 
         </div>
 
-        <button class="submit" type="submit">
-          💙 FAZER CADASTRO
+      </div>
+
+
+      <button class="submit" type="submit">
+        FAZER CADASTRO
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <div class="member-card" id="memberCard">
+
+    <div class="member-top">
+
+      <strong>NACIONAL FC</strong>
+
+      <span>👑 MÁFIA AZUL</span>
+
+    </div>
+
+    <div class="member-number" id="cardNumber">
+      0001
+    </div>
+
+    <div class="member-name" id="cardName">
+      SEU NOME
+    </div>
+
+    <div class="member-plan" id="cardPlan">
+      PLANO
+    </div>
+
+    <p style="margin-top:20px;color:#d7e4ff;">
+      Mais que torcida, uma família! 💙
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CENTRAL ADMINISTRATIVA ================= -->
+
+<section class="admin-area">
+
+  <button
+    class="admin-toggle"
+    onclick="abrirCentral()">
+
+    🔐 CENTRAL ADMINISTRATIVA
+
+  </button>
+
+
+  <div class="admin-panel" id="adminPanel">
+
+
+    <!-- LOGIN -->
+
+    <div class="login" id="adminLogin">
+
+      <h3>Central Administrativa</h3>
+
+      <input
+        id="adminEmail"
+        type="email"
+        placeholder="E-mail administrativo">
+
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Senha">
+
+      <button onclick="entrarAdmin()">
+        ENTRAR NA CENTRAL
+      </button>
+
+      <p style="margin-top:15px;color:#8fa6d5;font-size:13px;text-align:center;">
+        Área exclusiva da administração do Nacional FC.
+      </p>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard" id="dashboard">
+
+      <div class="dashboard-top">
+
+        <h3>📊 Painel do Nacional FC</h3>
+
+        <button class="logout" onclick="sairAdmin()">
+          SAIR
         </button>
 
-      </form>
-
-    </div>
-
-    <div id="result"></div>
-
-  </div>
-
-</section>
-
-
-<section class="benefits">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Ser Máfia Azul é fazer parte</h2>
-      <p>Seu apoio ajuda o Nacional FC.</p>
-    </div>
-
-    <div class="benefit-grid">
-
-      <div class="benefit">
-        <div class="icon">💙</div>
-        <h3>Faça parte da família</h3>
-        <p>
-          Torça, participe e esteja junto do Nacional FC.
-        </p>
       </div>
 
-      <div class="benefit">
-        <div class="icon">🏆</div>
-        <h3>Ajude o clube</h3>
-        <p>
-          Sua contribuição ajuda na estrutura e no crescimento da equipe.
-        </p>
+
+      <div class="stats">
+
+        <div class="stat">
+          <small>Total de sócios</small>
+          <strong id="totalSocios">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>Plano Bronze</small>
+          <strong id="totalBronze">0</strong>
+        </div>
+
+        <div class="stat">
+          <small>Plano Prata/Ouro</small>
+          <strong id="totalPremium">0</strong>
+        </div>
+
       </div>
 
-      <div class="benefit">
-        <div class="icon">🎟️</div>
-        <h3>Tenha benefícios</h3>
-        <p>
-          Descontos, ações e benefícios conforme seu plano.
-        </p>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>Nº</th>
+              <th>Nome</th>
+              <th>WhatsApp</th>
+              <th>Plano</th>
+              <th>Cidade</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="membersTable">
+
+          </tbody>
+
+        </table>
+
       </div>
 
     </div>
-
-  </div>
-
-</section>
-
-
-<section class="faq">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Perguntas frequentes</h2>
-    </div>
-
-    <details>
-      <summary>Como faço meu cadastro?</summary>
-      <p>
-        Escolha seu plano, preencha seus dados e toque em
-        “Fazer Cadastro”.
-      </p>
-    </details>
-
-    <details>
-      <summary>Qual o valor dos planos?</summary>
-      <p>
-        Bronze R$10, Prata R$20 e Ouro R$30 por mês.
-      </p>
-    </details>
-
-    <details>
-      <summary>Como faço o pagamento?</summary>
-      <p>
-        Após realizar o cadastro, o site apresentará o botão
-        para pagamento do plano escolhido.
-      </p>
-    </details>
-
-    <details>
-      <summary>Vou receber um número de sócio?</summary>
-      <p>
-        Sim. O sistema gera um número para identificar o associado.
-      </p>
-    </details>
 
   </div>
 
@@ -859,49 +997,88 @@ footer strong{
 
 <footer>
 
-  <strong>NACIONAL FC • MÁFIA AZUL</strong>
+  <p>
+    <strong>NACIONAL FC • MÁFIA AZUL</strong>
+  </p>
 
-  <br><br>
-
-  Mais que torcida, uma família! 💙
-
-  <br><br>
-
-  © 2026 Nacional FC
+  <p style="margin-top:8px;">
+    Mais que torcida, uma família! 💙
+  </p>
 
 </footer>
 
 
 <script>
 
-/*
-========================================
-CONFIGURAÇÕES
-========================================
+/* =====================================================
+   CONFIGURAÇÃO DA CENTRAL
+   =====================================================
+
+   E-MAIL ADMINISTRATIVO:
+   kauaatleta6@gmail.com
+
+   IMPORTANTE:
+   Esta senha é somente para a versão inicial local.
+   Para segurança real e acesso de qualquer dispositivo,
+   depois vamos conectar um banco de dados/autenticação.
 */
 
-const PAGAMENTOS = {
-
-  Bronze: "https://mpago.la/23Jjfqo",
-
-  Prata: "https://mpago.la/2TRyk8G",
-
-  Ouro: "https://mpago.la/2Yef2LK"
-
-};
-
-const WHATSAPP = "5512992332388";
-
+const ADMIN_EMAIL = "kauaatleta6@gmail.com";
 
 /*
-========================================
-SELECIONAR PLANO
-========================================
+   SENHA TEMPORÁRIA DA CENTRAL.
+   Você poderá trocar aqui.
 */
+const ADMIN_PASSWORD = "MafiaAzul2036";
 
-function selecionarPlano(plano){
 
-  document.getElementById("plano").value = plano;
+/* =====================================================
+   BANCO LOCAL
+   ===================================================== */
+
+function obterSocios(){
+
+  return JSON.parse(
+    localStorage.getItem("nacional_socios") || "[]"
+  );
+
+}
+
+
+function salvarSocios(socios){
+
+  localStorage.setItem(
+    "nacional_socios",
+    JSON.stringify(socios)
+  );
+
+}
+
+
+function proximoNumero(){
+
+  const socios = obterSocios();
+
+  if(socios.length === 0){
+    return 1;
+  }
+
+  return Math.max(
+    ...socios.map(s => Number(s.numero) || 0)
+  ) + 1;
+
+}
+
+
+/* =====================================================
+   SELEÇÃO DE PLANO
+   ===================================================== */
+
+function selecionarPlano(nome, valor){
+
+  const select = document.getElementById("plano");
+
+  select.value = nome + "|" + valor;
 
   document
     .getElementById("cadastro")
@@ -912,43 +1089,15 @@ function selecionarPlano(plano){
 }
 
 
-/*
-========================================
-GERAR NÚMERO DO SÓCIO
-========================================
-*/
-
-function gerarNumero(){
-
-  let numero =
-    Number(
-      localStorage.getItem("mafiaAzulNumero")
-    ) || 1;
-
-  const numeroFormatado =
-    String(numero).padStart(4,"0");
-
-  localStorage.setItem(
-    "mafiaAzulNumero",
-    numero + 1
-  );
-
-  return numeroFormatado;
-
-}
-
-
-/*
-========================================
-CADASTRO
-========================================
-*/
+/* =====================================================
+   CADASTRO
+   ===================================================== */
 
 document
-.getElementById("cadastroForm")
-.addEventListener("submit",function(event){
+.getElementById("memberForm")
+.addEventListener("submit", function(e){
 
-  event.preventDefault();
+  e.preventDefault();
 
   const nome =
     document.getElementById("nome").value.trim();
@@ -959,188 +1108,268 @@ document
   const email =
     document.getElementById("email").value.trim();
 
-  const plano =
-    document.getElementById("plano").value;
-
   const cidade =
     document.getElementById("cidade").value.trim();
 
+  const planoCompleto =
+    document.getElementById("plano").value;
+
+  if(!planoCompleto){
+    alert("Escolha um plano.");
+    return;
+  }
+
+  const partes = planoCompleto.split("|");
+
+  const plano = partes[0];
+
+  const valor = partes[1];
+
+  const numero = proximoNumero();
+
+  const socio = {
+
+    numero:String(numero).padStart(4,"0"),
+
+    nome,
+
+    whatsapp,
+
+    email,
+
+    cidade,
+
+    plano,
+
+    valor,
+
+    data:new Date().toLocaleString("pt-BR")
+
+  };
+
+
+  const socios = obterSocios();
+
+  socios.push(socio);
+
+  salvarSocios(socios);
+
+
+  /* MOSTRAR CARTEIRINHA */
+
+  document.getElementById("cardNumber").textContent =
+    socio.numero;
+
+  document.getElementById("cardName").textContent =
+    socio.nome.toUpperCase();
+
+  document.getElementById("cardPlan").textContent =
+    "PLANO " + socio.plano.toUpperCase() +
+    " • R$ " + socio.valor + "/MÊS";
+
+
+  document
+    .getElementById("memberCard")
+    .classList.add("show");
+
+
+  alert(
+    "Cadastro realizado com sucesso!\n\n" +
+    "Número do sócio: " +
+    socio.numero
+  );
+
+
+  document
+    .getElementById("memberCard")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+
+  this.reset();
+
+});
+
+
+/* =====================================================
+   CENTRAL ADMINISTRATIVA
+   ===================================================== */
+
+function abrirCentral(){
+
+  document
+    .getElementById("adminPanel")
+    .classList.toggle("open");
+
+}
+
+
+function entrarAdmin(){
+
+  const email =
+    document.getElementById("adminEmail").value.trim();
+
+  const password =
+    document.getElementById("adminPassword").value;
+
 
   if(
-    !nome ||
-    !whatsapp ||
-    !email ||
-    !plano ||
-    !cidade
+    email === ADMIN_EMAIL &&
+    password === ADMIN_PASSWORD
   ){
 
-    alert("Preencha todos os campos.");
+    document
+      .getElementById("adminLogin")
+      .style.display = "none";
+
+    document
+      .getElementById("dashboard")
+      .classList.add("show");
+
+    carregarDashboard();
+
+  }else{
+
+    alert(
+      "E-mail ou senha incorretos."
+    );
+
+  }
+
+}
+
+
+function sairAdmin(){
+
+  document
+    .getElementById("dashboard")
+    .classList.remove("show");
+
+  document
+    .getElementById("adminLogin")
+    .style.display = "block";
+
+  document.getElementById("adminPassword").value = "";
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
+function carregarDashboard(){
+
+  const socios = obterSocios();
+
+
+  document.getElementById("totalSocios").textContent =
+    socios.length;
+
+
+  document.getElementById("totalBronze").textContent =
+    socios.filter(s => s.plano === "Bronze").length;
+
+
+  document.getElementById("totalPremium").textContent =
+    socios.filter(
+      s => s.plano === "Prata" || s.plano === "Ouro"
+    ).length;
+
+
+  const tabela =
+    document.getElementById("membersTable");
+
+
+  tabela.innerHTML = "";
+
+
+  if(socios.length === 0){
+
+    tabela.innerHTML =
+      '<tr><td colspan="5" class="empty">Nenhum sócio cadastrado ainda.</td></tr>';
 
     return;
 
   }
 
 
-  const numero = gerarNumero();
+  socios.forEach(socio => {
+
+    const tr = document.createElement("tr");
 
 
-  /*
-  ========================================
-  SALVA LOCALMENTE NO CELULAR/NAVEGADOR
-  ========================================
-  */
+    tr.innerHTML = `
 
-  const socio = {
+      <td>${socio.numero}</td>
 
-    numero: numero,
+      <td>${escapeHtml(socio.nome)}</td>
 
-    nome: nome,
+      <td>${escapeHtml(socio.whatsapp)}</td>
 
-    whatsapp: whatsapp,
+      <td>${escapeHtml(socio.plano)}</td>
 
-    email: email,
+      <td>${escapeHtml(socio.cidade)}</td>
 
-    plano: plano,
-
-    cidade: cidade,
-
-    data:
-      new Date().toLocaleString("pt-BR")
-
-  };
+    `;
 
 
-  localStorage.setItem(
-    "ultimoSocio",
-    JSON.stringify(socio)
-  );
+    tabela.appendChild(tr);
 
-
-  /*
-  ========================================
-  RESULTADO
-  ========================================
-  */
-
-  const result =
-    document.getElementById("result");
-
-
-  const pagamento =
-    PAGAMENTOS[plano];
-
-
-  const mensagem =
-    "Olá! Fiz meu cadastro na Máfia Azul do Nacional FC.%0A%0A" +
-
-    "Nome: " +
-    encodeURIComponent(nome) +
-
-    "%0AWhatsApp: " +
-    encodeURIComponent(whatsapp) +
-
-    "%0AE-mail: " +
-    encodeURIComponent(email) +
-
-    "%0ACidade: " +
-    encodeURIComponent(cidade) +
-
-    "%0APlano: " +
-    encodeURIComponent(plano) +
-
-    "%0ANúmero de sócio: " +
-    numero;
-
-
-  const linkWhatsapp =
-    "https://wa.me/" +
-    WHATSAPP +
-    "?text=" +
-    mensagem;
-
-
-  result.innerHTML = `
-
-    <div class="member-result">
-
-      <h3>
-        💙 CADASTRO REALIZADO!
-      </h3>
-
-      <p>
-        Seu número de sócio é:
-      </p>
-
-      <div class="member-number">
-        ${numero}
-      </div>
-
-      <p>
-        <strong>Nome:</strong>
-        ${escapeHTML(nome)}
-      </p>
-
-      <p>
-        <strong>Plano:</strong>
-        ${escapeHTML(plano)}
-      </p>
-
-      <p>
-        <strong>Cidade:</strong>
-        ${escapeHTML(cidade)}
-      </p>
-
-      <a
-        class="result-btn pay"
-        href="${pagamento}"
-        target="_blank"
-        rel="noopener"
-      >
-        💳 PAGAR PLANO ${plano.toUpperCase()}
-      </a>
-
-      <a
-        class="result-btn whatsapp"
-        href="${linkWhatsapp}"
-        target="_blank"
-        rel="noopener"
-      >
-        📱 ENVIAR CADASTRO PELO WHATSAPP
-      </a>
-
-    </div>
-
-  `;
-
-
-  result.classList.add("show");
-
-
-  result.scrollIntoView({
-    behavior:"smooth",
-    block:"center"
   });
 
+}
 
-});
 
+/* =====================================================
+   SEGURANÇA BÁSICA PARA EXIBIÇÃO
+   ===================================================== */
 
-/*
-========================================
-SEGURANÇA BÁSICA DE EXIBIÇÃO
-========================================
-*/
+function escapeHtml(text){
 
-function escapeHTML(text){
+  const div = document.createElement("div");
 
-  return text
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  div.textContent = text;
+
+  return div.innerHTML;
 
 }
+
+
+/* =====================================================
+   MÁSCARA WHATSAPP
+   ===================================================== */
+
+document
+.getElementById("whatsapp")
+.addEventListener("input", function(){
+
+  let value = this.value.replace(/\D/g,"");
+
+  if(value.length > 11){
+    value = value.substring(0,11);
+  }
+
+  if(value.length <= 10){
+
+    value = value.replace(
+      /^(\d{2})(\d{4})(\d{0,4}).*/,
+      "($1) $2-$3"
+    );
+
+  }else{
+
+    value = value.replace(
+      /^(\d{2})(\d{5})(\d{0,4}).*/,
+      "($1) $2-$3"
+    );
+
+  }
+
+  this.value = value;
+
+});
 
 </script>
 
