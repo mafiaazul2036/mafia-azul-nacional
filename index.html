@@ -955,17 +955,24 @@ document
     data:new Date().toLocaleString("pt-BR")
   };
 
-  let socios =
-    JSON.parse(
-      localStorage.getItem("sociosNacional") || "[]"
-    );
+  const resposta = await fetch(
+  "https://vymnnlgbcyhzepikhivy.supabase.co/rest/v1/socios",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "apikey": "sb_publishable_SruJ0LsRnIpSMrs-yBd2_w_nLu0ek3u",
+      "Authorization": "Bearer sb_publishable_SruJ0LsRnIpSMrs-yBd2_w_nLu0ek3u",
+      "Prefer": "return=minimal"
+    },
+    body: JSON.stringify(socio)
+  }
+);
 
-  socios.push(socio);
-
-  localStorage.setItem(
-    "sociosNacional",
-    JSON.stringify(socios)
-  );
+if (!resposta.ok) {
+  alert("Erro ao cadastrar sócio. Tente novamente.");
+  return;
+}
 
   document.getElementById("cartNome")
     .textContent = nome.toUpperCase();
@@ -1053,12 +1060,24 @@ function sairAdmin(){
    LISTAR SÓCIOS
    ===================================== */
 
-function carregarSocios(){
+async function carregarSocios(){
 
-  const socios =
-    JSON.parse(
-      localStorage.getItem("sociosNacional") || "[]"
-    );
+  const resposta = await fetch(
+    "https://vymnnlgbcyhzepikhivy.supabase.co/rest/v1/socios?select=*",
+    {
+        headers: {
+            "apikey": "sb_publishable_SruJ0LsRnIpSMrs-yBd2_w_nLu0ek3u",
+            "Authorization": "Bearer sb_publishable_SruJ0LsRnIpSMrs-yBd2_w_nLu0ek3u"
+        }
+    }
+);
+
+if (!resposta.ok) {
+    alert("Erro ao carregar sócios.");
+    return;
+}
+
+const socios = await resposta.json();
 
   document.getElementById("totalSocios")
     .textContent =
