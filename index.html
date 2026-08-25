@@ -1016,12 +1016,11 @@ function abrirCentral(){
 
 function entrarAdmin(){
 
-  const email =
-    document.getElementById("adminEmail").value;
+ const email =
+    document.getElementById("adminEmail").value.trim();
 
-  const senha =
+const senha =
     document.getElementById("adminSenha").value;
-
   if(
     email === ADMIN_EMAIL &&
     senha === ADMIN_SENHA
