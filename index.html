@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#06183d">
 <title>Máfia Azul | Sócio-Torcedor Nacional FC</title>
 
 <style>
 :root{
+  --azul:#0758ff;
+  --azul2:#0b2b72;
   --navy:#020817;
-  --navy2:#061637;
-  --blue:#0758ff;
-  --blue2:#0b2b72;
-  --gold:#ffc928;
-  --gold2:#f4a900;
-  --white:#ffffff;
-  --muted:#b9c8e8;
+  --navy2:#06183d;
+  --ouro:#ffd23f;
+  --ouro2:#f4b800;
+  --branco:#fff;
+  --texto:#dce7ff;
   --card:#0a2252;
-  --line:rgba(255,255,255,.12);
+  --borda:rgba(255,255,255,.14);
 }
 
 *{
@@ -33,8 +33,8 @@ html{
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at 50% 0%,#123d91 0%,#061637 42%,#020817 100%);
-  color:var(--white);
+    radial-gradient(circle at 50% 0%,#164a9b 0%,#071d4b 38%,#020817 100%);
+  color:var(--branco);
   min-height:100vh;
 }
 
@@ -48,467 +48,386 @@ button{
   cursor:pointer;
 }
 
-/* ================= HEADER ================= */
+.container{
+  width:min(100% - 28px,900px);
+  margin:auto;
+}
+
+/* TOPO */
 
 header{
   position:sticky;
   top:0;
-  z-index:1000;
-  background:rgba(2,8,23,.96);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(255,201,40,.18);
+  z-index:100;
+  background:rgba(2,8,23,.97);
+  border-bottom:1px solid rgba(255,210,63,.18);
+  backdrop-filter:blur(12px);
 }
 
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 18px;
+.topo{
+  min-height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
   gap:12px;
 }
 
+.marca{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
 .logo{
-  width:58px;
-  height:58px;
+  width:52px;
+  height:52px;
   border-radius:50%;
-  background:linear-gradient(145deg,#1670ff,#00379e);
   border:3px solid white;
+  background:linear-gradient(145deg,#0758ff,#08245e);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-family:Georgia,serif;
-  font-size:34px;
-  font-weight:bold;
-  box-shadow:0 0 20px rgba(0,88,255,.45);
-}
-
-.brand-text small{
-  display:block;
-  color:var(--gold);
-  letter-spacing:4px;
-  font-weight:800;
-  font-size:12px;
-}
-
-.brand-text strong{
-  display:block;
-  font-size:21px;
-  margin-top:2px;
-}
-
-.header-btn{
-  border:0;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#07132e;
+  font-size:30px;
   font-weight:900;
-  padding:15px 22px;
-  border-radius:16px;
-  box-shadow:0 8px 25px rgba(255,201,40,.2);
+  box-shadow:0 0 18px rgba(7,88,255,.45);
 }
 
-/* ================= HERO ================= */
+.marca-texto small{
+  display:block;
+  color:var(--ouro);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.marca-texto strong{
+  display:block;
+  font-size:23px;
+  letter-spacing:.5px;
+}
+
+.btn-topo{
+  border:0;
+  border-radius:16px;
+  padding:15px 20px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  color:#111;
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 8px 25px rgba(255,210,63,.2);
+}
+
+/* HERO */
 
 .hero{
-  max-width:1100px;
-  margin:auto;
-  padding:55px 20px 25px;
   text-align:center;
+  padding:55px 0 35px;
 }
 
-.badge{
+.selo{
   display:inline-block;
-  border:1px solid rgba(255,201,40,.7);
-  color:var(--gold);
-  padding:11px 20px;
+  border:1px solid rgba(255,210,63,.7);
   border-radius:30px;
-  font-weight:800;
-  letter-spacing:1px;
+  padding:10px 20px;
+  color:var(--ouro);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:1.5px;
   margin-bottom:22px;
 }
 
 .hero h1{
-  font-size:clamp(54px,13vw,105px);
+  font-size:clamp(48px,14vw,92px);
   line-height:.9;
-  font-weight:950;
+  font-weight:1000;
   letter-spacing:-4px;
 }
 
 .hero h1 span{
-  color:var(--blue);
-  text-shadow:0 0 25px rgba(0,88,255,.35);
+  color:var(--azul);
+  text-shadow:0 0 30px rgba(7,88,255,.25);
 }
 
 .hero h2{
-  margin-top:25px;
-  font-size:clamp(22px,5vw,36px);
+  margin-top:24px;
+  font-size:22px;
 }
 
 .hero p{
-  max-width:760px;
-  margin:20px auto 0;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.6;
-}
-
-/* ================= MOVIMENTO ================= */
-
-.movement{
-  max-width:900px;
-  margin:35px auto;
-  padding:28px 20px;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:28px;
-  background:linear-gradient(135deg,rgba(17,59,143,.7),rgba(8,31,75,.8));
-  text-align:center;
-}
-
-.movement small{
-  color:var(--gold);
-  letter-spacing:4px;
-  font-weight:900;
-}
-
-.movement h3{
-  margin-top:18px;
-  font-size:clamp(21px,5vw,34px);
-}
-
-.heart{
-  color:#2380ff;
-  font-size:35px;
-}
-
-/* ================= PLANOS ================= */
-
-.section{
-  max-width:1100px;
-  margin:auto;
-  padding:45px 18px;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:clamp(34px,8vw,55px);
-}
-
-.section-title p{
-  margin-top:10px;
-  color:var(--muted);
+  color:#b9c8e9;
   font-size:17px;
+  line-height:1.6;
+  margin:18px auto 0;
+  max-width:700px;
 }
 
-.plans{
+/* MOVIMENTO */
+
+.movimento{
+  margin:25px 0 55px;
+  padding:32px 20px;
+  border:1px solid var(--borda);
+  border-radius:30px;
+  background:linear-gradient(145deg,rgba(22,68,142,.65),rgba(5,28,71,.7));
+  text-align:center;
+}
+
+.movimento small{
+  color:var(--ouro);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:4px;
+}
+
+.movimento h3{
+  margin-top:18px;
+  font-size:22px;
+}
+
+/* PLANOS */
+
+.titulo-secao{
+  text-align:center;
+  margin-bottom:28px;
+}
+
+.titulo-secao h2{
+  font-size:40px;
+}
+
+.titulo-secao p{
+  margin-top:10px;
+  color:#b9c8e9;
+}
+
+.planos{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
-.plan{
+.plano{
   position:relative;
-  background:linear-gradient(160deg,#0b2b66,#061638);
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:28px 22px;
   overflow:hidden;
+  padding:28px 24px;
+  border:1px solid var(--borda);
+  border-radius:25px;
+  background:linear-gradient(145deg,#0c2c67,#061a40);
 }
 
-.plan::before{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  background:rgba(0,88,255,.13);
-  right:-70px;
-  top:-70px;
+.plano.ouro{
+  border-color:rgba(255,210,63,.65);
+  box-shadow:0 0 30px rgba(255,210,63,.08);
 }
 
-.plan.featured{
-  border:2px solid var(--gold);
-  transform:translateY(-8px);
-  box-shadow:0 15px 40px rgba(255,201,40,.1);
+.plano.prata{
+  border-color:rgba(210,225,255,.35);
 }
 
-.plan-label{
-  color:var(--gold);
+.tag{
+  color:var(--ouro);
   font-weight:900;
   letter-spacing:2px;
   font-size:14px;
 }
 
-.plan h3{
-  font-size:29px;
-  margin-top:10px;
+.plano h3{
+  font-size:30px;
+  margin:10px 0;
 }
 
-.price{
-  margin:17px 0;
-  font-size:45px;
-  font-weight:950;
+.preco{
+  font-size:46px;
+  font-weight:1000;
+  margin:10px 0 20px;
 }
 
-.price small{
+.preco small{
   font-size:15px;
-  color:var(--muted);
+  color:#b9c8e9;
+  font-weight:normal;
 }
 
-.plan ul{
+.beneficios{
   list-style:none;
-  margin:20px 0;
+  display:grid;
+  gap:10px;
+  color:#dce7ff;
+  margin-bottom:24px;
 }
 
-.plan li{
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  color:#e8efff;
-}
-
-.plan li::before{
+.beneficios li::before{
   content:"✓";
-  color:var(--gold);
-  font-weight:bold;
-  margin-right:8px;
+  color:var(--ouro);
+  font-weight:900;
+  margin-right:9px;
 }
 
-.plan-btn{
+.btn-plano{
   width:100%;
   border:0;
+  border-radius:15px;
   padding:15px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#07132e;
+  background:var(--azul);
+  color:white;
   font-weight:900;
 }
 
-/* ================= CADASTRO ================= */
+.ouro .btn-plano{
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  color:#111;
+}
 
-.form-box{
-  max-width:760px;
-  margin:auto;
-  background:rgba(7,26,65,.9);
-  border:1px solid var(--line);
+/* CADASTRO */
+
+.secao{
+  padding:70px 0;
+}
+
+.form-card{
+  background:rgba(4,19,48,.85);
+  border:1px solid var(--borda);
   border-radius:28px;
   padding:25px;
 }
 
 .form-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
+  gap:16px;
 }
 
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.field.full{
-  grid-column:1/-1;
-}
-
-.field label{
-  color:#d7e4ff;
+label{
+  color:#c9d7f2;
   font-weight:700;
+  font-size:14px;
 }
 
-.field input,
-.field select{
+input,
+select{
   width:100%;
-  border:1px solid rgba(255,255,255,.14);
-  background:#071839;
+  margin-top:7px;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#081b40;
   color:white;
-  padding:15px;
-  border-radius:13px;
   outline:none;
 }
 
-.field input:focus,
-.field select:focus{
-  border-color:var(--gold);
+input:focus,
+select:focus{
+  border-color:var(--azul);
 }
 
-.submit{
+.btn-cadastrar{
   width:100%;
-  margin-top:20px;
-  padding:17px;
-  border:0;
-  border-radius:15px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#07132e;
-  font-weight:950;
-  font-size:17px;
-}
-
-/* ================= CARTEIRINHA ================= */
-
-.member-card{
-  display:none;
-  max-width:430px;
-  margin:30px auto;
-  padding:25px;
-  border-radius:25px;
-  background:linear-gradient(145deg,#0b3fa8,#061b50);
-  border:1px solid var(--gold);
-  box-shadow:0 20px 45px rgba(0,0,0,.3);
-}
-
-.member-card.show{
-  display:block;
-}
-
-.member-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.member-number{
-  color:var(--gold);
-  font-size:31px;
-  font-weight:950;
-  margin:15px 0;
-}
-
-.member-name{
-  font-size:26px;
-  font-weight:900;
-}
-
-.member-plan{
-  color:#bcd0ff;
-  margin-top:7px;
-}
-
-/* ================= CENTRAL ================= */
-
-.admin-area{
-  max-width:1100px;
-  margin:40px auto 0;
-  padding:0 18px 60px;
-}
-
-.admin-toggle{
-  width:100%;
-  padding:17px;
-  background:#071a3c;
-  border:1px solid rgba(255,201,40,.35);
-  color:var(--gold);
-  border-radius:16px;
-  font-weight:900;
-}
-
-.admin-panel{
-  display:none;
-  margin-top:20px;
-  background:#061532;
-  border:1px solid var(--line);
-  border-radius:25px;
-  padding:22px;
-}
-
-.admin-panel.open{
-  display:block;
-}
-
-.login{
-  max-width:450px;
-  margin:auto;
-}
-
-.login h3{
-  font-size:28px;
-  margin-bottom:20px;
-  text-align:center;
-}
-
-.login input{
-  width:100%;
-  margin-bottom:12px;
-  padding:15px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#081c42;
-  color:white;
-}
-
-.login button{
-  width:100%;
-  padding:15px;
-  border:0;
-  border-radius:12px;
-  background:var(--gold);
-  font-weight:900;
-}
-
-.dashboard{
-  display:none;
-}
-
-.dashboard.show{
-  display:block;
-}
-
-.dashboard-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-
-.dashboard-top h3{
-  font-size:28px;
-}
-
-.logout{
-  border:1px solid #ff5d5d;
-  color:#ff8a8a;
-  background:transparent;
-  padding:10px 15px;
-  border-radius:10px;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-bottom:20px;
-}
-
-.stat{
-  padding:18px;
-  border-radius:18px;
-  background:#0a2454;
-}
-
-.stat small{
-  color:var(--muted);
-}
-
-.stat strong{
-  display:block;
   margin-top:8px;
-  font-size:30px;
-  color:var(--gold);
+  border:0;
+  border-radius:16px;
+  padding:17px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  color:#111;
+  font-weight:1000;
 }
 
-.table-wrap{
-  overflow-x:auto;
+/* CARTEIRINHA */
+
+#resultado{
+  display:none;
+  margin-top:25px;
+}
+
+.carteirinha{
+  border:1px solid rgba(255,210,63,.55);
+  border-radius:25px;
+  padding:24px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(7,88,255,.4),transparent 45%),
+    linear-gradient(145deg,#082967,#031332);
+}
+
+.cart-topo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.cart-logo{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#0758ff;
+  border:2px solid white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  font-weight:900;
+}
+
+.cart-titulo{
+  color:var(--ouro);
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.cart-nome{
+  font-size:28px;
+  font-weight:1000;
+  margin:25px 0 8px;
+}
+
+.cart-plano{
+  color:#8fb5ff;
+  font-weight:900;
+}
+
+.cart-numero{
+  color:var(--ouro);
+  font-size:38px;
+  font-weight:1000;
+  margin-top:15px;
+}
+
+.cart-frase{
+  color:#c7d4ed;
+  margin-top:18px;
+}
+
+/* CENTRAL */
+
+.admin-link{
+  text-align:center;
+  padding:20px 0 60px;
+}
+
+.admin-link button{
+  border:1px solid rgba(255,255,255,.2);
+  background:transparent;
+  color:#b9c8e9;
+  border-radius:12px;
+  padding:11px 18px;
+}
+
+.admin{
+  display:none;
+  padding:40px 0 80px;
+}
+
+.admin-box{
+  background:#061a40;
+  border:1px solid var(--borda);
+  border-radius:25px;
+  padding:25px;
+}
+
+.admin h2{
+  color:var(--ouro);
+  margin-bottom:20px;
+}
+
+.tabela{
+  overflow:auto;
 }
 
 table{
@@ -519,90 +438,100 @@ table{
 
 th,
 td{
-  padding:12px;
   text-align:left;
-  border-bottom:1px solid var(--line);
+  padding:12px;
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 th{
-  color:var(--gold);
+  color:var(--ouro);
 }
 
-.empty{
-  color:var(--muted);
-  text-align:center;
-  padding:30px;
+.login{
+  max-width:450px;
+  margin:auto;
 }
 
-/* ================= FOOTER ================= */
+.btn-login{
+  width:100%;
+  margin-top:15px;
+  padding:16px;
+  border:0;
+  border-radius:14px;
+  background:var(--azul);
+  color:white;
+  font-weight:900;
+}
+
+.sair{
+  margin-top:20px;
+  border:1px solid rgba(255,255,255,.2);
+  background:transparent;
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+}
+
+/* RODAPÉ */
 
 footer{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:30px 0;
   text-align:center;
-  padding:35px 18px;
-  background:#010713;
-  border-top:1px solid var(--line);
-  color:var(--muted);
+  color:#91a5cb;
+  font-size:13px;
 }
 
 footer strong{
   color:white;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
-@media(max-width:760px){
+@media(max-width:600px){
 
-  .header-inner{
-    padding:10px 12px;
+  .topo{
+    min-height:72px;
   }
 
   .logo{
-    width:48px;
-    height:48px;
-    font-size:27px;
+    width:45px;
+    height:45px;
+    font-size:25px;
   }
 
-  .brand-text small{
+  .marca-texto small{
     font-size:9px;
     letter-spacing:2px;
   }
 
-  .brand-text strong{
-    font-size:17px;
+  .marca-texto strong{
+    font-size:19px;
   }
 
-  .header-btn{
-    padding:12px 14px;
-    font-size:12px;
-    border-radius:13px;
+  .btn-topo{
+    padding:13px 13px;
+    font-size:11px;
   }
 
   .hero{
-    padding-top:40px;
+    padding-top:45px;
   }
 
   .hero h1{
     letter-spacing:-3px;
   }
 
-  .plans{
-    grid-template-columns:1fr;
+  .titulo-secao h2{
+    font-size:34px;
   }
 
-  .plan.featured{
-    transform:none;
+  .plano{
+    padding:25px 20px;
   }
 
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .field.full{
-    grid-column:auto;
-  }
-
-  .stats{
-    grid-template-columns:1fr;
+  .form-card{
+    padding:20px;
   }
 }
 </style>
@@ -611,474 +540,373 @@ footer strong{
 <body>
 
 <header>
-  <div class="header-inner">
-
-    <div class="brand">
+  <div class="container topo">
+    <div class="marca">
       <div class="logo">N</div>
-
-      <div class="brand-text">
+      <div class="marca-texto">
         <small>NACIONAL FC</small>
         <strong>MÁFIA AZUL</strong>
       </div>
     </div>
 
-    <button class="header-btn"
-      onclick="document.getElementById('cadastro').scrollIntoView()">
+    <button class="btn-topo" onclick="irParaCadastro()">
       QUERO SER SÓCIO
     </button>
-
   </div>
 </header>
-
 
 <main>
 
 <section class="hero">
+  <div class="container">
 
-  <div class="badge">
-    NACIONAL FC • SÓCIO-TORCEDOR
+    <div class="selo">
+      NACIONAL FC • SÓCIO-TORCEDOR
+    </div>
+
+    <h1>
+      MÁFIA <span>AZUL</span>
+    </h1>
+
+    <h2>Mais que torcida, uma família.</h2>
+
+    <p>
+      Faça parte da Máfia Azul e ajude o Nacional FC
+      a crescer, se estruturar e conquistar cada vez mais.
+    </p>
+
   </div>
-
-  <h1>
-    MÁFIA <span>AZUL</span>
-  </h1>
-
-  <h2>Mais que torcida, uma família.</h2>
-
-  <p>
-    Faça parte da Máfia Azul e ajude o Nacional FC
-    a crescer, se estruturar e conquistar cada vez mais.
-  </p>
-
 </section>
 
-
-<section class="movement">
-
-  <small>NOSSO MOVIMENTO</small>
-
-  <h3>
-    <span class="heart">💙</span>
-    JUNTOS PELO NACIONAL FC
-    <span class="heart">💙</span>
-  </h3>
-
+<section class="container">
+  <div class="movimento">
+    <small>NOSSO MOVIMENTO</small>
+    <h3>💙 JUNTOS PELO NACIONAL FC 💙</h3>
+  </div>
 </section>
 
-
-<section class="section">
-
-  <div class="section-title">
+<section class="container">
+  <div class="titulo-secao">
     <h2>Escolha seu plano</h2>
     <p>Escolha a categoria que combina com você.</p>
   </div>
 
-  <div class="plans">
+  <div class="planos">
 
-    <div class="plan">
-
-      <div class="plan-label">PLANO BRONZE</div>
-
+    <div class="plano">
+      <div class="tag">PLANO BRONZE</div>
       <h3>Máfia Azul</h3>
 
-      <div class="price">
-        R$ 10
-        <small>/mês</small>
+      <div class="preco">
+        R$ 10 <small>/ mês</small>
       </div>
 
-      <ul>
+      <ul class="beneficios">
         <li>Carteirinha de sócio</li>
         <li>Número oficial de sócio</li>
-        <li>Nome na família Máfia Azul</li>
-        <li>Participação nas ações do clube</li>
+        <li>Participação no movimento</li>
+        <li>Descontos em ações futuras</li>
       </ul>
 
-      <button class="plan-btn"
-        onclick="selecionarPlano('Bronze','10')">
-        ESCOLHER BRONZE
+      <button class="btn-plano" onclick="selecionarPlano('Bronze',10)">
+        QUERO SER BRONZE
       </button>
-
     </div>
 
-
-    <div class="plan featured">
-
-      <div class="plan-label">PLANO PRATA ⭐</div>
-
+    <div class="plano prata">
+      <div class="tag">PLANO PRATA</div>
       <h3>Máfia Azul</h3>
 
-      <div class="price">
-        R$ 20
-        <small>/mês</small>
+      <div class="preco">
+        R$ 20 <small>/ mês</small>
       </div>
 
-      <ul>
+      <ul class="beneficios">
         <li>Todos os benefícios Bronze</li>
-        <li>Descontos em eventos</li>
-        <li>Benefícios exclusivos</li>
-        <li>Participação em promoções</li>
+        <li>Descontos especiais</li>
+        <li>Prioridade em ações da torcida</li>
+        <li>Benefícios exclusivos futuros</li>
       </ul>
 
-      <button class="plan-btn"
-        onclick="selecionarPlano('Prata','20')">
-        ESCOLHER PRATA
+      <button class="btn-plano" onclick="selecionarPlano('Prata',20)">
+        QUERO SER PRATA
       </button>
-
     </div>
 
-
-    <div class="plan">
-
-      <div class="plan-label">PLANO OURO 👑</div>
-
+    <div class="plano ouro">
+      <div class="tag">PLANO OURO 👑</div>
       <h3>Máfia Azul</h3>
 
-      <div class="price">
-        R$ 30
-        <small>/mês</small>
+      <div class="preco">
+        R$ 30 <small>/ mês</small>
       </div>
 
-      <ul>
+      <ul class="beneficios">
         <li>Todos os benefícios Prata</li>
-        <li>Benefícios especiais</li>
-        <li>Descontos especiais em eventos</li>
-        <li>Categoria de apoiador Ouro</li>
+        <li>Carteirinha especial</li>
+        <li>Benefícios exclusivos</li>
+        <li>Participação em ações especiais</li>
       </ul>
 
-      <button class="plan-btn"
-        onclick="selecionarPlano('Ouro','30')">
-        ESCOLHER OURO
+      <button class="btn-plano" onclick="selecionarPlano('Ouro',30)">
+        QUERO SER OURO 👑
       </button>
-
     </div>
 
   </div>
-
 </section>
 
+<section class="secao" id="cadastro">
+  <div class="container">
 
-<section class="section" id="cadastro">
+    <div class="titulo-secao">
+      <h2>Faça seu cadastro</h2>
+      <p>Entre agora para a Máfia Azul.</p>
+    </div>
 
-  <div class="section-title">
+    <div class="form-card">
 
-    <h2>Faça seu cadastro</h2>
+      <form id="formCadastro">
 
-    <p>
-      Seu cadastro será registrado e você receberá seu número de sócio.
-    </p>
+        <div class="form-grid">
 
-  </div>
+          <div>
+            <label>Nome completo</label>
+            <input id="nome" type="text" required placeholder="Digite seu nome">
+          </div>
 
+          <div>
+            <label>WhatsApp</label>
+            <input id="whatsapp" type="tel" required placeholder="(00) 00000-0000">
+          </div>
 
-  <div class="form-box">
+          <div>
+            <label>E-mail</label>
+            <input id="email" type="email" required placeholder="seuemail@gmail.com">
+          </div>
 
-    <form id="memberForm">
+          <div>
+            <label>Plano</label>
+            <select id="plano" required>
+              <option value="">Selecione</option>
+              <option value="Bronze">Bronze — R$ 10</option>
+              <option value="Prata">Prata — R$ 20</option>
+              <option value="Ouro">Ouro — R$ 30</option>
+            </select>
+          </div>
 
-      <div class="form-grid">
+          <div>
+            <label>Cidade</label>
+            <input id="cidade" type="text" placeholder="Sua cidade">
+          </div>
 
-        <div class="field full">
-          <label>Nome completo</label>
-          <input
-            id="nome"
-            type="text"
-            placeholder="Digite seu nome completo"
-            required>
+          <button class="btn-cadastrar" type="submit">
+            FAZER CADASTRO
+          </button>
+
         </div>
 
+      </form>
 
-        <div class="field">
-          <label>WhatsApp</label>
-          <input
-            id="whatsapp"
-            type="tel"
-            placeholder="(00) 00000-0000"
-            required>
-        </div>
+      <div id="resultado">
 
+        <div class="carteirinha">
 
-        <div class="field">
-          <label>E-mail</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="seuemail@email.com"
-            required>
-        </div>
+          <div class="cart-topo">
+            <div class="cart-logo">N</div>
 
+            <div>
+              <div class="cart-titulo">
+                NACIONAL FC
+              </div>
+              <strong>MÁFIA AZUL</strong>
+            </div>
+          </div>
 
-        <div class="field">
-          <label>Cidade</label>
-          <input
-            id="cidade"
-            type="text"
-            placeholder="Sua cidade"
-            required>
-        </div>
+          <div class="cart-nome" id="cartNome">
+            SEU NOME
+          </div>
 
+          <div class="cart-plano">
+            PLANO <span id="cartPlano"></span>
+          </div>
 
-        <div class="field">
-          <label>Plano</label>
+          <div class="cart-numero" id="cartNumero">
+            0001
+          </div>
 
-          <select id="plano" required>
-
-            <option value="">
-              Escolha seu plano
-            </option>
-
-            <option value="Bronze|10">
-              Bronze — R$ 10/mês
-            </option>
-
-            <option value="Prata|20">
-              Prata — R$ 20/mês
-            </option>
-
-            <option value="Ouro|30">
-              Ouro — R$ 30/mês
-            </option>
-
-          </select>
+          <div class="cart-frase">
+            Mais que torcida, uma família! 💙
+          </div>
 
         </div>
 
       </div>
 
-
-      <button class="submit" type="submit">
-        FAZER CADASTRO
-      </button>
-
-    </form>
+    </div>
 
   </div>
-
-
-  <div class="member-card" id="memberCard">
-
-    <div class="member-top">
-
-      <strong>NACIONAL FC</strong>
-
-      <span>👑 MÁFIA AZUL</span>
-
-    </div>
-
-    <div class="member-number" id="cardNumber">
-      0001
-    </div>
-
-    <div class="member-name" id="cardName">
-      SEU NOME
-    </div>
-
-    <div class="member-plan" id="cardPlan">
-      PLANO
-    </div>
-
-    <p style="margin-top:20px;color:#d7e4ff;">
-      Mais que torcida, uma família! 💙
-    </p>
-
-  </div>
-
 </section>
 
-
-<!-- ================= CENTRAL ADMINISTRATIVA ================= -->
-
-<section class="admin-area">
-
-  <button
-    class="admin-toggle"
-    onclick="abrirCentral()">
-
+<section class="admin-link">
+  <button onclick="abrirCentral()">
     🔐 CENTRAL ADMINISTRATIVA
-
   </button>
+</section>
 
+<section class="admin" id="central">
+  <div class="container">
 
-  <div class="admin-panel" id="adminPanel">
+    <div class="admin-box">
 
+      <div id="loginAdmin">
 
-    <!-- LOGIN -->
+        <div class="titulo-secao">
+          <h2>Central Administrativa</h2>
+          <p>Acesso exclusivo da administração.</p>
+        </div>
 
-    <div class="login" id="adminLogin">
+        <div class="login">
 
-      <h3>Central Administrativa</h3>
+          <label>E-mail administrativo</label>
+          <input
+            id="adminEmail"
+            type="email"
+            placeholder="E-mail"
+          >
 
-      <input
-        id="adminEmail"
-        type="email"
-        placeholder="E-mail administrativo">
+          <label style="display:block;margin-top:15px;">
+            Senha
+          </label>
 
-      <input
-        id="adminPassword"
-        type="password"
-        placeholder="Senha">
+          <input
+            id="adminSenha"
+            type="password"
+            placeholder="Senha"
+          >
 
-      <button onclick="entrarAdmin()">
-        ENTRAR NA CENTRAL
-      </button>
+          <button class="btn-login" onclick="entrarAdmin()">
+            ENTRAR NA CENTRAL
+          </button>
 
-      <p style="margin-top:15px;color:#8fa6d5;font-size:13px;text-align:center;">
-        Área exclusiva da administração do Nacional FC.
-      </p>
+          <p id="erroLogin"
+             style="display:none;color:#ff7777;margin-top:15px;">
+            E-mail ou senha incorretos.
+          </p>
 
-    </div>
+        </div>
 
+      </div>
 
-    <!-- DASHBOARD -->
+      <div id="painelAdmin" style="display:none;">
 
-    <div class="dashboard" id="dashboard">
+        <h2>👑 Painel da Máfia Azul</h2>
 
-      <div class="dashboard-top">
+        <p id="totalSocios"
+           style="margin-bottom:25px;color:#b9c8e9;">
+          Sócios cadastrados: 0
+        </p>
 
-        <h3>📊 Painel do Nacional FC</h3>
+        <div class="tabela">
 
-        <button class="logout" onclick="sairAdmin()">
+          <table>
+
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Nome</th>
+                <th>WhatsApp</th>
+                <th>E-mail</th>
+                <th>Plano</th>
+                <th>Cidade</th>
+              </tr>
+            </thead>
+
+            <tbody id="listaSocios"></tbody>
+
+          </table>
+
+        </div>
+
+        <button class="sair" onclick="sairAdmin()">
           SAIR
         </button>
 
       </div>
 
-
-      <div class="stats">
-
-        <div class="stat">
-          <small>Total de sócios</small>
-          <strong id="totalSocios">0</strong>
-        </div>
-
-        <div class="stat">
-          <small>Plano Bronze</small>
-          <strong id="totalBronze">0</strong>
-        </div>
-
-        <div class="stat">
-          <small>Plano Prata/Ouro</small>
-          <strong id="totalPremium">0</strong>
-        </div>
-
-      </div>
-
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-              <th>Nº</th>
-              <th>Nome</th>
-              <th>WhatsApp</th>
-              <th>Plano</th>
-              <th>Cidade</th>
-            </tr>
-
-          </thead>
-
-          <tbody id="membersTable">
-
-          </tbody>
-
-        </table>
-
-      </div>
-
     </div>
 
   </div>
-
 </section>
 
 </main>
 
-
 <footer>
-
-  <p>
+  <div class="container">
     <strong>NACIONAL FC • MÁFIA AZUL</strong>
-  </p>
-
-  <p style="margin-top:8px;">
+    <br><br>
     Mais que torcida, uma família! 💙
-  </p>
-
+  </div>
 </footer>
-
 
 <script>
 
-/* =====================================================
+/* =====================================
    CONFIGURAÇÃO DA CENTRAL
-   =====================================================
-
-   E-MAIL ADMINISTRATIVO:
-   kauaatleta6@gmail.com
-
-   IMPORTANTE:
-   Esta senha é somente para a versão inicial local.
-   Para segurança real e acesso de qualquer dispositivo,
-   depois vamos conectar um banco de dados/autenticação.
-*/
+   ===================================== */
 
 const ADMIN_EMAIL = "kauaatleta6@gmail.com";
 
 /*
    SENHA TEMPORÁRIA DA CENTRAL.
-   Você poderá trocar aqui.
+
+   IMPORTANTE:
+   Esta versão é apenas a estrutura inicial.
+   Depois vamos colocar banco de dados e
+   autenticação realmente segura.
 */
-const ADMIN_PASSWORD = "MafiaAzul2036";
+const ADMIN_SENHA = "MafiaAzul2026!";
 
 
-/* =====================================================
-   BANCO LOCAL
-   ===================================================== */
-
-function obterSocios(){
-
-  return JSON.parse(
-    localStorage.getItem("nacional_socios") || "[]"
-  );
-
-}
-
-
-function salvarSocios(socios){
-
-  localStorage.setItem(
-    "nacional_socios",
-    JSON.stringify(socios)
-  );
-
-}
-
+/* =====================================
+   NÚMERO DO SÓCIO
+   ===================================== */
 
 function proximoNumero(){
 
-  const socios = obterSocios();
+  let numero = Number(
+    localStorage.getItem("numeroSocio") || "0"
+  );
 
-  if(socios.length === 0){
-    return 1;
-  }
+  numero++;
 
-  return Math.max(
-    ...socios.map(s => Number(s.numero) || 0)
-  ) + 1;
+  localStorage.setItem(
+    "numeroSocio",
+    numero
+  );
+
+  return String(numero).padStart(4,"0");
+}
+
+
+/* =====================================
+   SELECIONAR PLANO
+   ===================================== */
+
+function selecionarPlano(plano,valor){
+
+  document.getElementById("plano").value = plano;
+
+  irParaCadastro();
 
 }
 
 
-/* =====================================================
-   SELEÇÃO DE PLANO
-   ===================================================== */
+/* =====================================
+   IR PARA CADASTRO
+   ===================================== */
 
-function selecionarPlano(nome, valor){
-
-  const select = document.getElementById("plano");
-
-  select.value = nome + "|" + valor;
+function irParaCadastro(){
 
   document
     .getElementById("cadastro")
@@ -1089,15 +917,15 @@ function selecionarPlano(nome, valor){
 }
 
 
-/* =====================================================
+/* =====================================
    CADASTRO
-   ===================================================== */
+   ===================================== */
 
 document
-.getElementById("memberForm")
-.addEventListener("submit", function(e){
+.getElementById("formCadastro")
+.addEventListener("submit",function(event){
 
-  e.preventDefault();
+  event.preventDefault();
 
   const nome =
     document.getElementById("nome").value.trim();
@@ -1108,99 +936,73 @@ document
   const email =
     document.getElementById("email").value.trim();
 
+  const plano =
+    document.getElementById("plano").value;
+
   const cidade =
     document.getElementById("cidade").value.trim();
 
-  const planoCompleto =
-    document.getElementById("plano").value;
-
-  if(!planoCompleto){
-    alert("Escolha um plano.");
-    return;
-  }
-
-  const partes = planoCompleto.split("|");
-
-  const plano = partes[0];
-
-  const valor = partes[1];
-
-  const numero = proximoNumero();
+  const numero =
+    proximoNumero();
 
   const socio = {
-
-    numero:String(numero).padStart(4,"0"),
-
+    numero,
     nome,
-
     whatsapp,
-
     email,
-
-    cidade,
-
     plano,
-
-    valor,
-
+    cidade,
     data:new Date().toLocaleString("pt-BR")
-
   };
 
-
-  const socios = obterSocios();
+  let socios =
+    JSON.parse(
+      localStorage.getItem("sociosNacional") || "[]"
+    );
 
   socios.push(socio);
 
-  salvarSocios(socios);
-
-
-  /* MOSTRAR CARTEIRINHA */
-
-  document.getElementById("cardNumber").textContent =
-    socio.numero;
-
-  document.getElementById("cardName").textContent =
-    socio.nome.toUpperCase();
-
-  document.getElementById("cardPlan").textContent =
-    "PLANO " + socio.plano.toUpperCase() +
-    " • R$ " + socio.valor + "/MÊS";
-
-
-  document
-    .getElementById("memberCard")
-    .classList.add("show");
-
-
-  alert(
-    "Cadastro realizado com sucesso!\n\n" +
-    "Número do sócio: " +
-    socio.numero
+  localStorage.setItem(
+    "sociosNacional",
+    JSON.stringify(socios)
   );
 
+  document.getElementById("cartNome")
+    .textContent = nome.toUpperCase();
 
-  document
-    .getElementById("memberCard")
+  document.getElementById("cartPlano")
+    .textContent = plano.toUpperCase();
+
+  document.getElementById("cartNumero")
+    .textContent = numero;
+
+  document.getElementById("resultado")
+    .style.display = "block";
+
+  document.getElementById("resultado")
     .scrollIntoView({
       behavior:"smooth"
     });
-
 
   this.reset();
 
 });
 
 
-/* =====================================================
-   CENTRAL ADMINISTRATIVA
-   ===================================================== */
+/* =====================================
+   CENTRAL
+   ===================================== */
 
 function abrirCentral(){
 
-  document
-    .getElementById("adminPanel")
-    .classList.toggle("open");
+  const central =
+    document.getElementById("central");
+
+  central.style.display = "block";
+
+  central.scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
 
@@ -1208,32 +1010,28 @@ function abrirCentral(){
 function entrarAdmin(){
 
   const email =
-    document.getElementById("adminEmail").value.trim();
+    document.getElementById("adminEmail").value;
 
-  const password =
-    document.getElementById("adminPassword").value;
-
+  const senha =
+    document.getElementById("adminSenha").value;
 
   if(
     email === ADMIN_EMAIL &&
-    password === ADMIN_PASSWORD
+    senha === ADMIN_SENHA
   ){
 
-    document
-      .getElementById("adminLogin")
+    document.getElementById("loginAdmin")
       .style.display = "none";
 
-    document
-      .getElementById("dashboard")
-      .classList.add("show");
+    document.getElementById("painelAdmin")
+      .style.display = "block";
 
-    carregarDashboard();
+    carregarSocios();
 
   }else{
 
-    alert(
-      "E-mail ou senha incorretos."
-    );
+    document.getElementById("erroLogin")
+      .style.display = "block";
 
   }
 
@@ -1242,134 +1040,54 @@ function entrarAdmin(){
 
 function sairAdmin(){
 
-  document
-    .getElementById("dashboard")
-    .classList.remove("show");
-
-  document
-    .getElementById("adminLogin")
+  document.getElementById("loginAdmin")
     .style.display = "block";
 
-  document.getElementById("adminPassword").value = "";
+  document.getElementById("painelAdmin")
+    .style.display = "none";
 
 }
 
 
-/* =====================================================
-   DASHBOARD
-   ===================================================== */
+/* =====================================
+   LISTAR SÓCIOS
+   ===================================== */
 
-function carregarDashboard(){
+function carregarSocios(){
 
-  const socios = obterSocios();
+  const socios =
+    JSON.parse(
+      localStorage.getItem("sociosNacional") || "[]"
+    );
 
-
-  document.getElementById("totalSocios").textContent =
-    socios.length;
-
-
-  document.getElementById("totalBronze").textContent =
-    socios.filter(s => s.plano === "Bronze").length;
-
-
-  document.getElementById("totalPremium").textContent =
-    socios.filter(
-      s => s.plano === "Prata" || s.plano === "Ouro"
-    ).length;
-
+  document.getElementById("totalSocios")
+    .textContent =
+      "Sócios cadastrados: " + socios.length;
 
   const tabela =
-    document.getElementById("membersTable");
-
+    document.getElementById("listaSocios");
 
   tabela.innerHTML = "";
 
+  socios.forEach(function(socio){
 
-  if(socios.length === 0){
+    const linha =
+      document.createElement("tr");
 
-    tabela.innerHTML =
-      '<tr><td colspan="5" class="empty">Nenhum sócio cadastrado ainda.</td></tr>';
-
-    return;
-
-  }
-
-
-  socios.forEach(socio => {
-
-    const tr = document.createElement("tr");
-
-
-    tr.innerHTML = `
-
+    linha.innerHTML = `
       <td>${socio.numero}</td>
-
-      <td>${escapeHtml(socio.nome)}</td>
-
-      <td>${escapeHtml(socio.whatsapp)}</td>
-
-      <td>${escapeHtml(socio.plano)}</td>
-
-      <td>${escapeHtml(socio.cidade)}</td>
-
+      <td>${socio.nome}</td>
+      <td>${socio.whatsapp}</td>
+      <td>${socio.email}</td>
+      <td>${socio.plano}</td>
+      <td>${socio.cidade || "-"}</td>
     `;
 
-
-    tabela.appendChild(tr);
+    tabela.appendChild(linha);
 
   });
 
 }
-
-
-/* =====================================================
-   SEGURANÇA BÁSICA PARA EXIBIÇÃO
-   ===================================================== */
-
-function escapeHtml(text){
-
-  const div = document.createElement("div");
-
-  div.textContent = text;
-
-  return div.innerHTML;
-
-}
-
-
-/* =====================================================
-   MÁSCARA WHATSAPP
-   ===================================================== */
-
-document
-.getElementById("whatsapp")
-.addEventListener("input", function(){
-
-  let value = this.value.replace(/\D/g,"");
-
-  if(value.length > 11){
-    value = value.substring(0,11);
-  }
-
-  if(value.length <= 10){
-
-    value = value.replace(
-      /^(\d{2})(\d{4})(\d{0,4}).*/,
-      "($1) $2-$3"
-    );
-
-  }else{
-
-    value = value.replace(
-      /^(\d{2})(\d{5})(\d{0,4}).*/,
-      "($1) $2-$3"
-    );
-
-  }
-
-  this.value = value;
-
-});
 
 </script>
 
