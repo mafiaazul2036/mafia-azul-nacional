@@ -120,18 +120,42 @@ footer{padding:45px 0;border-top:1px solid var(--line);color:var(--muted)}.foote
   <div class="section-head"><div class="kicker">PRÉ-CADASTRO</div><h2>Entre para a Máfia Azul</h2><p>O cadastro abaixo é demonstrativo nesta primeira versão. Quando o lançamento oficial acontecer, ele poderá ser conectado ao pagamento e ao banco de dados dos sócios.</p></div>
   <div class="grid" style="grid-template-columns:1fr 1fr">
     <div class="card">
-      <form id="memberForm">
-        <div class="form-grid">
-          <label>Nome completo<input id="name" required placeholder="Seu nome"></label>
-          <label>WhatsApp<input id="phone" required placeholder="(00) 00000-0000"></label>
-        </div>
-        <div class="form-grid">
-          <label>E-mail<input id="email" type="email" required placeholder="voce@email.com"></label>
-          <label>Plano<select id="plan"><option>Bronze</option><option>Prata</option><option>Ouro</option></select></label>
-        </div>
-        <label>Cidade<input id="city" placeholder="Sua cidade"></label>
-        <button class="btn btn-primary" type="submit">FAZER PRÉ-CADASTRO</button>
-      </form>
+      <form onsubmit="enviarCadastro(event)">
+  <div class="grade-de-formulario">
+    <label>Nome completo
+      <input type="text" id="nome" required placeholder="Seu nome">
+    </label>
+
+    <label>WhatsApp
+      <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+    </label>
+  </div>
+
+  <div class="grade-de-formulario">
+    <label>E-mail
+      <input type="email" id="email" required placeholder="voce@email.com">
+    </label>
+
+    <label>Plano
+      <select id="plano" required>
+        <option value="">Escolha seu plano</option>
+        <option value="Bronze">Bronze</option>
+        <option value="Prata">Prata</option>
+        <option value="Ouro">Ouro</option>
+      </select>
+    </label>
+  </div>
+
+  <label>Cidade
+    <input type="text" id="cidade" required placeholder="Sua cidade">
+  </label>
+
+  <button type="submit" class="botao botao-primario">
+    FAZER PRÉ-CADASTRO
+  </button>
+</form>
+
+<div id="resultado" style="margin-top:20px;"></div>
       <div id="result" class="member-result"><small>NÚMERO DE PRÉ-SÓCIO</small><div class="member-number" id="memberNo">0002</div><b id="memberName"></b><p id="memberPlan"></p></div>
     </div>
     <div class="card-preview">
@@ -168,23 +192,85 @@ footer{padding:45px 0;border-top:1px solid var(--line);color:var(--muted)}.foote
 </footer>
 <div class="toast" id="toast">Pré-cadastro registrado nesta versão demonstrativa!</div>
 <script>
-let nextNo = Number(localStorage.getItem('mafiaNextNo') || 2);
-function setPlan(p){document.getElementById('plan').value=p}
-const form=document.getElementById('memberForm');
-form.addEventListener('submit',e=>{
- e.preventDefault();
- const name=document.getElementById('name').value.trim();
- const plan=document.getElementById('plan').value;
- const no=String(nextNo).padStart(4,'0');
- nextNo++; localStorage.setItem('mafiaNextNo',nextNo);
- document.getElementById('memberNo').textContent=no;
- document.getElementById('memberName').textContent=name.toUpperCase();
- document.getElementById('memberPlan').textContent='Plano escolhido: '+plan;
- document.getElementById('previewName').textContent=name.toUpperCase();
- document.getElementById('previewNo').textContent=no;
- document.getElementById('result').classList.add('show');
- const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);
-});
+const pagamentos = {
+  Ouro: "https://mpago.la/2Yef2LK",
+  Prata: "https://mpago.la/2TRyk8G",
+  Bronze: "https://mpago.la/23Jjfqo"
+};
+
+let nextNo = Number(localStorage.getItem("mafiaNextNo") || "1");
+
+function setPlan(p) {
+  const campo = document.getElementById("plan");
+  if (campo) campo.value = p;
+  document.getElementById("cadastro").scrollIntoView({behavior:"smooth"});
+}
+
+function enviarCadastro(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const plan = document.getElementById("plan").value;
+  const cidade = document.getElementById("cidade").value.trim();
+
+  if (!name || !telefone || !email || !plan || !cidade) {
+    alert("Preencha todos os campos.");
+    return;
+  }
+
+  const no = String(nextNo).padStart(4, "0");
+  nextNo++;
+  localStorage.setItem("mafiaNextNo", nextNo);
+
+  document.getElementById("memberNo").textContent = no;
+  document.getElementById("memberName").textContent = name;
+  document.getElementById("memberPlan").textContent = plan;
+  document.getElementById("previewName").textContent = name;
+  document.getElementById("previewNo").textContent = no;
+
+  document.getElementById("result").classList.add("show");
+
+  const mensagem =
+    "Olá! Fiz meu pré-cadastro na Máfia Azul.%0A%0A" +
+    "Nome: " + encodeURIComponent(name) +
+    "%0APlano: " + encodeURIComponent(plan) +
+    "%0ACidade: " + encodeURIComponent(cidade) +
+    "%0ANúmero: " + no;
+
+  const whatsapp =
+    "https://wa.me/5512992332388?text=" + mensagem;
+
+  const pagamento = pagamentos[plan];
+
+  document.getElementById("result").innerHTML = `
+    <div class="member-result">
+      <h3>💙 PRÉ-CADASTRO REALIZADO!</h3>
+      <p><strong>Nº DO PRÉ-SÓCIO:</strong> ${no}</p>
+      <p><strong>Nome:</strong> ${name}</p>
+      <p><strong>Plano:</strong> ${plan}</p>
+
+      <a class="btn btn-primary"
+         href="${pagamento}"
+         target="_blank"
+         rel="noopener">
+         💳 PAGAR PLANO ${plan.toUpperCase()}
+      </a>
+
+      <a class="btn btn-blue"
+         href="${whatsapp}"
+         target="_blank"
+         rel="noopener"
+         style="margin-top:10px;">
+         📱 ENVIAR CADASTRO PELO WHATSAPP
+      </a>
+    </div>
+  `;
+
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+}
+</script>
 </script>
 </body>
 </html>
