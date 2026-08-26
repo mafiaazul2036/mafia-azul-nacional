@@ -1,892 +1,148 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#06152f">
-<title>Nacional FC • Máfia Azul</title>
+<!-- BOTÃO WHATSAPP -->
+<a
+  id="whatsappFloat"
+  href="#"
+  target="_blank"
+  rel="noopener"
+  aria-label="Enviar cadastro pelo WhatsApp"
+>
+  ☎
+  <span>CONFIRMAR PAGAMENTO</span>
+</a>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+#whatsappFloat {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+
+  background: #25D366;
+  color: white;
+
+  font-size: 28px;
+  text-decoration: none;
+
+  border: 2px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+
+  transition: .2s;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#020817;
-  color:#fff;
-  line-height:1.5;
+#whatsappFloat:hover {
+  transform: scale(1.08);
 }
 
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(2,8,23,.95);
-  border-bottom:1px solid #123c82;
-  backdrop-filter:blur(12px);
+#whatsappFloat span {
+  position: absolute;
+  right: 70px;
+
+  white-space: nowrap;
+
+  background: #06152d;
+  color: white;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: .2s;
 }
 
-.nav{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+#whatsappFloat:hover span {
+  opacity: 1;
 }
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:800;
-}
-
-.logo-circle{
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background:#075bea;
-  border:3px solid #fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-}
-
-.logo-text span{
-  display:block;
-}
-
-.logo-text .nacional{
-  font-size:12px;
-  letter-spacing:2px;
-}
-
-.logo-text .mafia{
-  color:#1683ff;
-  font-size:18px;
-  letter-spacing:1px;
-}
-
-.nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:15px;
-  font-size:14px;
-}
-
-.btn{
-  display:inline-block;
-  border:0;
-  border-radius:10px;
-  padding:13px 18px;
-  cursor:pointer;
-  font-weight:800;
-  text-decoration:none;
-  color:#fff;
-  background:#075bea;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  background:#1476ff;
-}
-
-.btn-outline{
-  background:transparent;
-  border:1px solid #1674ff;
-}
-
-.hero{
-  min-height:600px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:80px 20px;
-  background:
-    radial-gradient(circle at 50% 20%,rgba(0,102,255,.35),transparent 35%),
-    linear-gradient(180deg,#06152f,#020817);
-}
-
-.hero-content{
-  max-width:900px;
-}
-
-.badge{
-  display:inline-block;
-  padding:8px 15px;
-  border:1px solid #1683ff;
-  border-radius:30px;
-  color:#42a0ff;
-  margin-bottom:20px;
-  font-weight:bold;
-}
-
-.hero h1{
-  font-size:clamp(42px,8vw,82px);
-  line-height:.95;
-  margin-bottom:20px;
-}
-
-.blue{
-  color:#147cff;
-}
-
-.hero p{
-  max-width:700px;
-  margin:0 auto 30px;
-  color:#c8d5ea;
-  font-size:18px;
-}
-
-section{
-  padding:75px 20px;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.section-title h2{
-  font-size:38px;
-}
-
-.section-title p{
-  color:#9eb0ca;
-  margin-top:8px;
-}
-
-.plans{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
-}
-
-.plan{
-  background:linear-gradient(180deg,#0a1b38,#061229);
-  border:1px solid #173d7a;
-  border-radius:18px;
-  padding:30px;
-  box-shadow:0 15px 50px rgba(0,0,0,.3);
-}
-
-.plan.featured{
-  border:2px solid #167cff;
-  transform:translateY(-8px);
-}
-
-.plan h3{
-  font-size:25px;
-  margin-bottom:10px;
-}
-
-.price{
-  font-size:42px;
-  font-weight:900;
-  color:#1683ff;
-  margin:15px 0;
-}
-
-.price small{
-  font-size:14px;
-  color:#9eb0ca;
-}
-
-.plan ul{
-  list-style:none;
-  margin:20px 0;
-}
-
-.plan li{
-  margin:10px 0;
-  color:#d8e3f3;
-}
-
-.plan li::before{
-  content:"✓";
-  color:#1683ff;
-  font-weight:bold;
-  margin-right:8px;
-}
-
-.payment{
-  margin-top:18px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.pix-box{
-  max-width:650px;
-  margin:40px auto 0;
-  padding:25px;
-  border-radius:18px;
-  background:#071733;
-  border:1px solid #17478e;
-  text-align:center;
-}
-
-.pix-key{
-  background:#020817;
-  border:1px solid #254b80;
-  border-radius:10px;
-  padding:15px;
-  margin:15px 0;
-  word-break:break-all;
-  color:#57a6ff;
-  font-weight:bold;
-}
-
-.form-card{
-  max-width:800px;
-  margin:auto;
-  background:#071733;
-  border:1px solid #17478e;
-  border-radius:20px;
-  padding:30px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.field.full{
-  grid-column:1/-1;
-}
-
-label{
-  font-weight:bold;
-  color:#d9e5f5;
-}
-
-input,select{
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #31527e;
-  background:#020817;
-  color:#fff;
-  outline:none;
-}
-
-input:focus,select:focus{
-  border-color:#1683ff;
-}
-
-.form-actions{
-  margin-top:25px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.success{
-  display:none;
-  margin-top:25px;
-  padding:25px;
-  border-radius:15px;
-  background:#062b1b;
-  border:1px solid #13a765;
-}
-
-.success h3{
-  color:#37db8e;
-  margin-bottom:8px;
-}
-
-.dashboard{
-  background:#010612;
-}
-
-.login-box{
-  max-width:500px;
-  margin:auto;
-  background:#071733;
-  border:1px solid #17478e;
-  border-radius:20px;
-  padding:30px;
-}
-
-#central{
-  display:none;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:25px;
-}
-
-.stat{
-  padding:22px;
-  background:#071733;
-  border:1px solid #173d7a;
-  border-radius:15px;
-}
-
-.stat strong{
-  display:block;
-  font-size:30px;
-  color:#1683ff;
-}
-
-.table-wrap{
-  overflow-x:auto;
-  background:#071733;
-  border:1px solid #173d7a;
-  border-radius:15px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:850px;
-}
-
-th,td{
-  padding:14px;
-  border-bottom:1px solid #17345f;
-  text-align:left;
-}
-
-th{
-  color:#55a7ff;
-}
-
-.search{
-  margin-bottom:15px;
-}
-
-footer{
-  padding:40px 20px;
-  text-align:center;
-  color:#8295b3;
-  border-top:1px solid #102c55;
-}
-
-@media(max-width:800px){
-  .plans{
-    grid-template-columns:1fr;
+@media(max-width:560px) {
+  #whatsappFloat {
+    right: 14px;
+    bottom: 14px;
+    width: 55px;
+    height: 55px;
   }
 
-  .plan.featured{
-    transform:none;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .nav a{
-    display:none;
-  }
-}
-
-@media(max-width:500px){
-  .stats{
-    grid-template-columns:1fr;
-  }
-
-  .hero{
-    min-height:500px;
+  #whatsappFloat span {
+    display: none;
   }
 }
 </style>
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-    <div class="logo">
-      <div class="logo-circle">N</div>
-      <div class="logo-text">
-        <span class="nacional">NACIONAL FC</span>
-        <span class="mafia">MÁFIA AZUL</span>
-      </div>
-    </div>
-
-    <nav>
-      <a href="#planos">Planos</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#cadastro">Cadastro</a>
-      <a href="#central">Central</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="badge">NACIONAL FC • MÁFIA AZUL</div>
-
-    <h1>
-      MAIS QUE TORCIDA.<br>
-      <span class="blue">UMA FAMÍLIA.</span>
-    </h1>
-
-    <p>
-      Faça parte da Máfia Azul, fortaleça o Nacional FC
-      e ajude o clube a crescer, se estruturar e conquistar
-      cada vez mais.
-    </p>
-
-    <a href="#planos" class="btn">QUERO SER SÓCIO</a>
-  </div>
-</section>
-
-<section id="beneficios">
-  <div class="container">
-    <div class="section-title">
-      <h2>BENEFÍCIOS</h2>
-      <p>Faça parte da família Nacional FC.</p>
-    </div>
-
-    <div class="plans">
-      <div class="plan">
-        <h3>🎟️ Descontos</h3>
-        <p>Condições especiais em eventos e ações da Máfia Azul.</p>
-      </div>
-
-      <div class="plan">
-        <h3>🏆 Sorteios</h3>
-        <p>Participe de sorteios e ações exclusivas para sócios.</p>
-      </div>
-
-      <div class="plan">
-        <h3>📰 Exclusividade</h3>
-        <p>Tenha acesso às novidades e informações do Nacional FC.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="planos">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>ESCOLHA SEU PLANO</h2>
-      <p>Escolha o plano que mais combina com você.</p>
-    </div>
-
-    <div class="plans">
-
-      <div class="plan">
-        <h3>🥉 BRONZE</h3>
-        <div class="price">R$ 10 <small>/ mês</small></div>
-
-        <ul>
-          <li>Carteirinha de sócio</li>
-          <li>Descontos exclusivos</li>
-          <li>Participação em sorteios</li>
-        </ul>
-
-        <div class="payment">
-          <a class="btn"
-             href="https://mpago.la/23Jjfqo"
-             target="_blank">
-             PAGAR BRONZE
-          </a>
-
-          <button class="btn btn-outline"
-                  onclick="selecionarPlano('Bronze')">
-             ESCOLHER PLANO
-          </button>
-        </div>
-      </div>
-
-      <div class="plan featured">
-        <h3>🥈 PRATA</h3>
-        <div class="price">R$ 20 <small>/ mês</small></div>
-
-        <ul>
-          <li>Todos os benefícios Bronze</li>
-          <li>Benefícios exclusivos</li>
-          <li>Experiências especiais</li>
-        </ul>
-
-        <div class="payment">
-          <a class="btn"
-             href="https://mpago.la/2TRyk8G"
-             target="_blank">
-             PAGAR PRATA
-          </a>
-
-          <button class="btn btn-outline"
-                  onclick="selecionarPlano('Prata')">
-             ESCOLHER PLANO
-          </button>
-        </div>
-      </div>
-
-      <div class="plan">
-        <h3>🥇 OURO</h3>
-        <div class="price">R$ 30 <small>/ mês</small></div>
-
-        <ul>
-          <li>Todos os benefícios Prata</li>
-          <li>Benefícios premium</li>
-          <li>Experiências exclusivas</li>
-        </ul>
-
-        <div class="payment">
-          <a class="btn"
-             href="https://mpago.la/2Yef2LK"
-             target="_blank">
-             PAGAR OURO
-          </a>
-
-          <button class="btn btn-outline"
-                  onclick="selecionarPlano('Ouro')">
-             ESCOLHER PLANO
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="pix-box">
-      <h3>💠 PAGAMENTO VIA PIX</h3>
-
-      <p>Se preferir, faça o pagamento pelo Pix:</p>
-
-      <div class="pix-key" id="pixKey">
-        57137123000196
-      </div>
-
-      <button class="btn" onclick="copiarPix()">
-        COPIAR CHAVE PIX
-      </button>
-
-      <p style="margin-top:12px;color:#9eb0ca;font-size:13px">
-        Depois do pagamento, preencha seu cadastro e envie a confirmação pelo WhatsApp.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section id="cadastro">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>FAÇA SEU CADASTRO</h2>
-      <p>Entre agora para a Máfia Azul.</p>
-    </div>
-
-    <div class="form-card">
-
-      <form id="formCadastro">
-
-        <div class="form-grid">
-
-          <div class="field">
-            <label>Nome completo</label>
-            <input id="nome" type="text" required>
-          </div>
-
-          <div class="field">
-            <label>WhatsApp</label>
-            <input id="whatsapp" type="tel" required>
-          </div>
-
-          <div class="field">
-            <label>E-mail</label>
-            <input id="email" type="email" required>
-          </div>
-
-          <div class="field">
-            <label>Cidade</label>
-            <input id="cidade" type="text" required>
-          </div>
-
-          <div class="field full">
-            <label>Plano</label>
-
-            <select id="plano" required>
-              <option value="">Selecione</option>
-              <option value="Bronze">Bronze — R$ 10</option>
-              <option value="Prata">Prata — R$ 20</option>
-              <option value="Ouro">Ouro — R$ 30</option>
-            </select>
-          </div>
-
-        </div>
-
-        <div class="form-actions">
-          <button class="btn" type="submit">
-            JÁ PAGUEI — ENVIAR CADASTRO
-          </button>
-
-          <button class="btn btn-outline"
-                  type="button"
-                  onclick="copiarPix()">
-            COPIAR PIX
-          </button>
-        </div>
-
-      </form>
-
-      <div class="success" id="resultado">
-        <h3>✅ Cadastro preparado!</h3>
-
-        <p id="resultadoTexto"></p>
-
-        <br>
-
-        <button class="btn"
-                id="btnWhatsApp">
-          ENVIAR PARA O WHATSAPP
-        </button>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="central" class="dashboard">
-
-  <div class="container">
-
-    <div class="section-title">
-      <h2>🎛️ CENTRAL DE CONTROLE</h2>
-      <p>Controle dos cadastros da Máfia Azul.</p>
-    </div>
-
-    <div class="login-box" id="centralLogin">
-
-      <h3 style="margin-bottom:15px">
-        Área administrativa
-      </h3>
-
-      <p style="color:#9eb0ca;margin-bottom:15px">
-        Digite a senha para acessar a Central.
-      </p>
-
-      <input
-        type="password"
-        id="senhaCentral"
-        placeholder="Senha da Central"
-      >
-
-      <br><br>
-
-      <button class="btn" onclick="entrarCentral()">
-        ACESSAR CENTRAL
-      </button>
-
-    </div>
-
-    <div id="centralConteudo" style="display:none">
-
-      <div class="stats">
-
-        <div class="stat">
-          <span>Total de sócios</span>
-          <strong id="totalSocios">0</strong>
-        </div>
-
-        <div class="stat">
-          <span>Bronze</span>
-          <strong id="totalBronze">0</strong>
-        </div>
-
-        <div class="stat">
-          <span>Prata</span>
-          <strong id="totalPrata">0</strong>
-        </div>
-
-        <div class="stat">
-          <span>Ouro</span>
-          <strong id="totalOuro">0</strong>
-        </div>
-
-      </div>
-
-      <input
-        class="search"
-        id="buscaSocio"
-        type="text"
-        placeholder="Pesquisar por nome, telefone ou número..."
-        oninput="renderSocios()"
-      >
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-            <tr>
-              <th>Nº</th>
-              <th>Nome</th>
-              <th>WhatsApp</th>
-              <th>E-mail</th>
-              <th>Plano</th>
-              <th>Cidade</th>
-            </tr>
-          </thead>
-
-          <tbody id="listaSocios"></tbody>
-
-        </table>
-
-      </div>
-
-      <br>
-
-      <button class="btn btn-outline"
-              onclick="exportarCadastros()">
-        EXPORTAR CADASTROS
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer>
-  <p>NACIONAL FC • MÁFIA AZUL</p>
-  <p style="margin-top:5px">
-    Juntos somos mais fortes. 💙
-  </p>
-</footer>
 
 <script>
 
-/* =====================================================
+/* ================================
    CONFIGURAÇÕES
-===================================================== */
+================================ */
 
 const WHATSAPP_MAFIA_AZUL = "5512992332388";
 
 const PIX_MAFIA_AZUL = "57137123000196";
 
-const SENHA_CENTRAL = "MafiaAzul2036";
+
+/* ================================
+   PLANOS
+================================ */
 
 const PLANOS_MAFIA_AZUL = {
 
-  Bronze:{
-    valor:10,
-    pagamento:"https://mpago.la/23Jjfqo"
+  Bronze: {
+    valor: 10,
+    pagamento: "https://mpago.la/23Jjfqo"
   },
 
-  Prata:{
-    valor:20,
-    pagamento:"https://mpago.la/2TRyk8G"
+  Prata: {
+    valor: 20,
+    pagamento: "https://mpago.la/2TRyk8G"
   },
 
-  Ouro:{
-    valor:30,
-    pagamento:"https://mpago.la/2Yef2LK"
+  Ouro: {
+    valor: 30,
+    pagamento: "https://mpago.la/2Yef2LK"
   }
 
 };
 
 
-/* =====================================================
+/* ================================
    NÚMERO DO SÓCIO
-===================================================== */
+================================ */
 
-function proximoNumero(){
+function gerarNumeroSocio() {
 
   let numero =
-    Number(localStorage.getItem("numeroSocioMafiaAzul")) || 0;
-
-  numero++;
+    Number(localStorage.getItem("numeroSocio") || "0") + 1;
 
   localStorage.setItem(
-    "numeroSocioMafiaAzul",
-    numero
+    "numeroSocio",
+    String(numero)
   );
 
-  return String(numero).padStart(4,"0");
+  return String(numero).padStart(4, "0");
 }
 
 
-/* =====================================================
-   ESCOLHER PLANO
-===================================================== */
-
-function selecionarPlano(plano){
-
-  document.getElementById("plano").value = plano;
-
-  document.getElementById("cadastro")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   COPIAR PIX
-===================================================== */
-
-function copiarPix(){
-
-  navigator.clipboard.writeText(PIX_MAFIA_AZUL)
-    .then(function(){
-
-      alert(
-        "Chave Pix copiada!\n\n" +
-        PIX_MAFIA_AZUL
-      );
-
-    })
-    .catch(function(){
-
-      alert(
-        "Chave Pix:\n\n" +
-        PIX_MAFIA_AZUL
-      );
-
-    });
-
-}
-
-
-/* =====================================================
+/* ================================
    CADASTRO
-===================================================== */
+================================ */
 
-document
-.getElementById("formCadastro")
-.addEventListener("submit",function(event){
-
-  event.preventDefault();
+async function cadastrarSocio() {
 
   const nome =
     document.getElementById("nome").value.trim();
 
-  const whatsapp =
-    document.getElementById("whatsapp").value.trim();
+  const telefone =
+    document.getElementById("telefone").value.trim();
 
   const email =
     document.getElementById("email").value.trim();
@@ -897,294 +153,213 @@ document
   const plano =
     document.getElementById("plano").value;
 
-  if(!nome || !whatsapp || !email || !cidade || !plano){
+
+  if (
+    !nome ||
+    !telefone ||
+    !email ||
+    !cidade ||
+    !plano
+  ) {
 
     alert("Preencha todos os campos.");
 
     return;
   }
 
-  const numero = proximoNumero();
+
+  const planoDados =
+    PLANOS_MAFIA_AZUL[plano];
+
+
+  /* GERA NÚMERO ÚNICO */
+
+  const numeroSocio =
+    gerarNumeroSocio();
+
+
+  /* SALVA OS DADOS */
 
   const socio = {
 
-    numero,
-    nome,
-    whatsapp,
-    email,
-    cidade,
-    plano,
+    numero: numeroSocio,
 
-    valor:
-      PLANOS_MAFIA_AZUL[plano].valor,
+    nome: nome,
 
-    data:
-      new Date().toLocaleString("pt-BR")
+    telefone: telefone,
+
+    email: email,
+
+    cidade: cidade,
+
+    plano: plano,
+
+    valor: planoDados.valor,
+
+    pix: PIX_MAFIA_AZUL
 
   };
 
 
-  let socios =
-    JSON.parse(
-      localStorage.getItem("sociosMafiaAzul")
-    ) || [];
-
-  socios.push(socio);
-
   localStorage.setItem(
-    "sociosMafiaAzul",
-    JSON.stringify(socios)
+    "ultimoSocio",
+    JSON.stringify(socio)
   );
 
 
-  document
-    .getElementById("resultado")
-    .style.display = "block";
+  /* MOSTRA NÚMERO NA TELA */
+
+  const memberNumber =
+    document.getElementById("memberNumber");
+
+  if (memberNumber) {
+
+    memberNumber.textContent =
+      numeroSocio;
+
+  }
 
 
-  document
-    .getElementById("resultadoTexto")
-    .innerHTML =
-      "Seu número de sócio é <strong>#" +
-      numero +
-      "</strong>.<br>" +
-      "Plano escolhido: <strong>" +
-      plano +
-      "</strong> — R$ " +
-      PLANOS_MAFIA_AZUL[plano].valor +
-      ".";
+  const memberCard =
+    document.getElementById("memberCard");
+
+  if (memberCard) {
+
+    memberCard.classList.add("show");
+
+  }
 
 
-  const mensagem =
+  /* ================================
+     MENSAGEM WHATSAPP
+  ================================ */
 
-`💙 *NOVO CADASTRO — MÁFIA AZUL*
+  const mensagem = `
+
+Olá! Acabei de realizar meu cadastro no Sócio Máfia Azul.
+
+🆔 NÚMERO DO SÓCIO: ${numeroSocio}
 
 👤 Nome: ${nome}
-📱 WhatsApp: ${whatsapp}
+
+📱 WhatsApp: ${telefone}
+
 📧 E-mail: ${email}
+
 📍 Cidade: ${cidade}
 
-🎫 Plano: ${plano}
-💰 Valor: R$ ${PLANOS_MAFIA_AZUL[plano].valor}
+🏆 Plano: ${plano}
 
-🆔 Número do sócio: #${numero}
+💰 Valor: R$ ${planoDados.valor},00
 
-✅ Pagamento informado pelo torcedor.
+💳 PIX: ${PIX_MAFIA_AZUL}
 
-NACIONAL FC — MÁFIA AZUL`;
+Já realizei o pagamento e quero confirmar meu cadastro.
 
-  const url =
-    "https://wa.me/" +
-    WHATSAPP_MAFIA_AZUL +
-    "?text=" +
-    encodeURIComponent(mensagem);
+`.trim();
 
 
-  document
-    .getElementById("btnWhatsApp")
-    .onclick = function(){
-
-      window.open(url,"_blank");
-
-    };
+  const whatsappURL =
+    `https://wa.me/${WHATSAPP_MAFIA_AZUL}?text=${encodeURIComponent(mensagem)}`;
 
 
-  document
-    .getElementById("resultado")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+  /* ================================
+     ABRE PAGAMENTO
+  ================================ */
+
+  window.open(
+    planoDados.pagamento,
+    "_blank"
+  );
+
+
+  /* ================================
+     ABRE WHATSAPP
+  ================================ */
+
+  setTimeout(() => {
+
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
+
+  }, 1200);
+
+}
+
+
+/* ================================
+   BOTÃO FLUTUANTE WHATSAPP
+================================ */
+
+document
+  .getElementById("whatsappFloat")
+  .addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+
+    const dados =
+      JSON.parse(
+        localStorage.getItem("ultimoSocio") || "null"
+      );
+
+
+    let mensagem;
+
+
+    if (dados) {
+
+      mensagem = `
+
+Olá! Sou da Máfia Azul e quero confirmar meu pagamento.
+
+🆔 Número do sócio: ${dados.numero}
+
+👤 Nome: ${dados.nome}
+
+📱 WhatsApp: ${dados.telefone}
+
+📧 E-mail: ${dados.email}
+
+📍 Cidade: ${dados.cidade}
+
+🏆 Plano: ${dados.plano}
+
+💰 Valor: R$ ${dados.valor},00
+
+💳 PIX: ${PIX_MAFIA_AZUL}
+
+Já realizei o pagamento e quero finalizar meu cadastro.
+
+`.trim();
+
+    } else {
+
+      mensagem = `
+
+Olá! Quero me cadastrar no Sócio Máfia Azul.
+
+💳 PIX: ${PIX_MAFIA_AZUL}
+
+Gostaria de realizar meu cadastro.
+
+`.trim();
+
+    }
+
+
+    const url =
+      `https://wa.me/${WHATSAPP_MAFIA_AZUL}?text=${encodeURIComponent(mensagem)}`;
+
+
+    window.open(
+      url,
+      "_blank"
+    );
 
 });
 
 
-/* =====================================================
-   CENTRAL DE CONTROLE
-===================================================== */
-
-function entrarCentral(){
-
-  const senha =
-    document.getElementById("senhaCentral").value;
-
-  if(senha !== SENHA_CENTRAL){
-
-    alert("Senha incorreta.");
-
-    return;
-  }
-
-  document
-    .getElementById("centralLogin")
-    .style.display = "none";
-
-  document
-    .getElementById("centralConteudo")
-    .style.display = "block";
-
-  renderSocios();
-
-}
-
-
-/* =====================================================
-   RENDERIZAR SOCIOS
-===================================================== */
-
-function renderSocios(){
-
-  const socios =
-    JSON.parse(
-      localStorage.getItem("sociosMafiaAzul")
-    ) || [];
-
-
-  const busca =
-    (document.getElementById("buscaSocio")?.value || "")
-      .toLowerCase();
-
-
-  const filtrados =
-    socios.filter(function(socio){
-
-      return (
-
-        socio.nome.toLowerCase().includes(busca) ||
-
-        socio.whatsapp.toLowerCase().includes(busca) ||
-
-        socio.numero.toLowerCase().includes(busca)
-
-      );
-
-    });
-
-
-  document.getElementById("totalSocios")
-    .textContent = socios.length;
-
-  document.getElementById("totalBronze")
-    .textContent =
-      socios.filter(s => s.plano === "Bronze").length;
-
-  document.getElementById("totalPrata")
-    .textContent =
-      socios.filter(s => s.plano === "Prata").length;
-
-  document.getElementById("totalOuro")
-    .textContent =
-      socios.filter(s => s.plano === "Ouro").length;
-
-
-  const lista =
-    document.getElementById("listaSocios");
-
-  lista.innerHTML = "";
-
-
-  filtrados.forEach(function(socio){
-
-    const tr =
-      document.createElement("tr");
-
-    tr.innerHTML = `
-
-      <td>#${socio.numero}</td>
-
-      <td>${socio.nome}</td>
-
-      <td>
-        <a
-          href="https://wa.me/${socio.whatsapp.replace(/\D/g,"")}"
-          target="_blank"
-          style="color:#38a1ff">
-          ${socio.whatsapp}
-        </a>
-      </td>
-
-      <td>${socio.email}</td>
-
-      <td>${socio.plano}</td>
-
-      <td>${socio.cidade}</td>
-
-    `;
-
-    lista.appendChild(tr);
-
-  });
-
-}
-
-
-/* =====================================================
-   EXPORTAR CADASTROS
-===================================================== */
-
-function exportarCadastros(){
-
-  const socios =
-    JSON.parse(
-      localStorage.getItem("sociosMafiaAzul")
-    ) || [];
-
-  if(!socios.length){
-
-    alert("Ainda não existem cadastros.");
-
-    return;
-  }
-
-  const texto =
-    socios.map(function(s){
-
-      return [
-
-        "Número: #" + s.numero,
-        "Nome: " + s.nome,
-        "WhatsApp: " + s.whatsapp,
-        "E-mail: " + s.email,
-        "Cidade: " + s.cidade,
-        "Plano: " + s.plano,
-        "Valor: R$ " + s.valor,
-        "Data: " + s.data
-
-      ].join(" | ");
-
-    }).join("\n");
-
-
-  const blob =
-    new Blob(
-      [texto],
-      {type:"text/plain;charset=utf-8"}
-    );
-
-
-  const url =
-    URL.createObjectURL(blob);
-
-
-  const a =
-    document.createElement("a");
-
-  a.href = url;
-
-  a.download =
-    "cadastros-mafia-azul.txt";
-
-  a.click();
-
-  URL.revokeObjectURL(url);
-
-}
-
-
-/* =====================================================
-   FINAL
-===================================================== */
-
 </script>
-
-</body>
-</html>
